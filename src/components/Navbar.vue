@@ -11,7 +11,7 @@
       </div>
 
       <!-- Nav Links + Toggle -->
-      <div class="flex items-center gap-1 text-gray-800 dark:text-gray-200 font-prm-thin">
+      <div class="flex items-center gap-1 text-gray-800 font-prm-thin">
         <a href="#work" class=" hover:bg-gray-200/40 px-4 py-1 rounded-md transition-colors">work</a>
   		<a href="#projects" class=" hover:bg-gray-200/40 px-4 py-1 rounded-md transition-colors">projects</a>
   		<a href="#blog" class=" hover:bg-gray-200/40 px-4 py-1 rounded-md transition-colors">blog</a>
