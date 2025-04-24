@@ -1,10 +1,10 @@
 <template>
-  <nav class="bg-white/80 sticky  py-4 px-4">
+ <nav class="fixed top-0 w-full bg-white/80 py-6 px-2 z-50 backdrop-blur-md  ">
     <div class="mx-auto max-w-2xl flex items-center justify-between">
       <!-- Logo -->
       <div class="flex items-center">
-             <svg width="40" height="40" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-  <rect width="200" height="200" fill="white"/>
+             <svg width="30" height="30" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="200" fill="none"/>
   <path d="M60 40 H140 V60 H110 V160 H90 V60 H60 Z" fill="black"/>
   <path d="M110 100 H140 V120 H110 V160 H90 V120 H70 V100 H90 V80 H110 Z" fill="black"/>
 </svg>

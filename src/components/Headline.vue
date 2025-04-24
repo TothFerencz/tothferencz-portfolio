@@ -1,5 +1,5 @@
 <template>
-  <section class="max-w-2xl mx-auto px-4 py-16">
+  <section class="max-w-2xl mx-auto px-4 py-16 mt-12">
     <div class="space-y-6">
       <div class="space-y-1">
         <h1 class="text-base font-prm-semibold text-gray-800 ">Toth Ferencz</h1>
