@@ -1,6 +1,6 @@
 <template>
  <nav class="fixed top-0 w-full bg-white/80 py-6 px-2 z-50 backdrop-blur-md  ">
-    <div class="mx-auto max-w-2xl flex items-center justify-between">
+    <div class="mx-auto px-4  max-w-2xl flex items-center justify-between">
       <!-- Logo -->
       <div class="flex items-center">
              <svg width="30" height="30" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -12,9 +12,10 @@
 
       <!-- Nav Links + Toggle -->
       <div class="flex items-center gap-1 text-gray-800 font-prm-thin">
-        <a href="#work" class=" hover:bg-gray-200/40 px-4 py-1 rounded-md transition-colors">work</a>
-  		<a href="#projects" class=" hover:bg-gray-200/40 px-4 py-1 rounded-md transition-colors">projects</a>
-  		<a href="#blog" class=" hover:bg-gray-200/40 px-4 py-1 rounded-md transition-colors">blog</a>
+<a href="/" class=" hover:bg-gray-200/40 px-4 py-1 rounded-md transition-colors">home</a>
+        <a href="work" class=" hover:bg-gray-200/40 px-4 py-1 rounded-md transition-colors">work</a>
+  		<a href="projects" class=" hover:bg-gray-200/40 px-4 py-1 rounded-md transition-colors">projects</a>
+  		<a href="blog" class=" hover:bg-gray-200/40 px-4 py-1 rounded-md transition-colors">blog</a>
 
         <!-- Toggle Button -->
         <button @click="toggleTheme" class=" cursor-pointer  hover:bg-gray-200/40 px-4 py-1 rounded-md transition-colors">
