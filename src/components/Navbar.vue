@@ -11,13 +11,13 @@
       </div>
 
       <!-- Nav Links + Toggle -->
-      <div class="flex items-center gap-6 text-gray-800 dark:text-gray-200 font-medium">
-        <a href="#work" class="hover:text-blue-500 transition-colors">work</a>
-        <a href="#projects" class="hover:text-blue-500 transition-colors">projects</a>
-        <a href="#blog" class="hover:text-blue-500 transition-colors">blog</a>
+      <div class="flex items-center gap-1 text-gray-800 dark:text-gray-200 font-prm-thin">
+        <a href="#work" class=" hover:bg-gray-200/40 px-4 py-1 rounded-md transition-colors">work</a>
+  		<a href="#projects" class=" hover:bg-gray-200/40 px-4 py-1 rounded-md transition-colors">projects</a>
+  		<a href="#blog" class=" hover:bg-gray-200/40 px-4 py-1 rounded-md transition-colors">blog</a>
 
         <!-- Toggle Button -->
-        <button @click="toggleTheme" class="transition-all">
+        <button @click="toggleTheme" class=" cursor-pointer  hover:bg-gray-200/40 px-4 py-1 rounded-md transition-colors">
           <transition name="fade-scale" mode="out-in">
             <span :key="theme">
               <svg v-if="theme === 'light'" id="light" width="20" height="20" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
