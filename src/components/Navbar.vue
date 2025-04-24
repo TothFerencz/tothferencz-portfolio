@@ -51,9 +51,35 @@
 </template>
 
 <script setup>
-import { useTheme } from '@/composables/useTheme';
+import { ref, watchEffect, onMounted } from 'vue';
 
-const { theme, toggleTheme } = useTheme();
+const theme = ref('light');
+
+const toggleTheme = () => {
+	theme.value = theme.value === 'light' ? 'dark' : 'light';
+};
+
+// Beállítjuk a html class-t a dark mode-hoz
+watchEffect(() => {
+	const html = document.documentElement;
+	if (theme.value === 'dark') {
+		html.classList.add('dark');
+	} else {
+		html.classList.remove('dark');
+	}
+});
+
+// (opcionális) elmentjük localStorage-ba
+onMounted(() => {
+	const saved = localStorage.getItem('theme');
+	if (saved === 'dark' || saved === 'light') {
+		theme.value = saved;
+	}
+});
+
+watchEffect(() => {
+	localStorage.setItem('theme', theme.value);
+});
 </script>
 
 <style scoped>
