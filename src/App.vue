@@ -3,7 +3,7 @@ import { useRoute } from 'vue-router';
 
 import Navbar from './components/Navbar.vue';
 import Headline from './components/Headline.vue';
-
+import Contact from './components/Contact.vue';
 import WorkPreview from './components/WorkPreview.vue';
 
 const route = useRoute();
@@ -19,7 +19,7 @@ const route = useRoute();
       <template v-if="route.path === '/'">
         <Headline />
         <WorkPreview />
-
+		<Contact />
       </template>
       <template v-else>
         <router-view />
