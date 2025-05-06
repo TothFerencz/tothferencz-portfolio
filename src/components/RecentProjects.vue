@@ -1,5 +1,5 @@
 <template>
-  <section class="py-20 bg-neutral-100 text-center">
+  <section class="py-20 text-center">
     <!-- Cím -->
     <h2 class="text-[48px] leading-none font-extrabold tracking-tight">
       <div>RECENT</div>
@@ -29,7 +29,7 @@
 
         <!-- Lábléc -->
         <div :class="['p-5 text-left', project.footerColor]">
-          <div class="flex flex-wrap gap-2 mb-2">
+          <div class="flex flex-wrap  mb-2">
             <span
               v-for="tag in project.tags"
               :key="tag"
