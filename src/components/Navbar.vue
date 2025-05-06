@@ -22,16 +22,12 @@
 
     <!-- Mobile menu (full screen) -->
    <!-- Mobile menu (full screen) -->
+<!-- Mobile menu (full screen) -->
 <transition name="fade">
   <div
     v-if="isMenuOpen"
     class="fixed inset-0 bg-neutral-50 flex flex-col px-8 py-12 z-40"
   >
-    <!-- FT logo in mobile menu -->
-    <div class="text-3xl font-bold text-neutral-900 mt-[-1rem]">
-      FT
-    </div>
-
     <!-- Close button -->
     <button
       @click="toggleMenu"
@@ -40,7 +36,8 @@
       <img src="@/assets/close.svg" alt="Close" class="w-5 h-5" />
     </button>
 
-    <div class="mt-16 w-full space-y-6">
+    <!-- Nav items -->
+    <div class="pt-10 w-full space-y-6">
       <button
         v-for="(item, index) in navItems"
         :key="index"
@@ -51,6 +48,7 @@
     </div>
   </div>
 </transition>
+
 
   </nav>
 </template>
