@@ -1,0 +1,23 @@
+[
+  {
+    "title": "eCommerce Banner",
+    "image": "ecommercebanner.png",
+    "tags": ["Web App", "Ecommerce", "Python"],
+    "bgColor": "bg-[#366f62]",
+    "footerColor": "bg-[#f0f9f8]"
+  },
+  {
+    "title": "Arkanala",
+    "image": "arkanala.png",
+    "tags": ["Dashboard", "Finance", "C++"],
+    "bgColor": "bg-[#141e31]",
+    "footerColor": "bg-[#efc151]"
+  },
+  {
+    "title": "Finn Solveig",
+    "image": "finn-website.png",
+    "tags": ["Website", "Design", "JavaScript"],
+    "bgColor": "bg-[#2D3900]",
+    "footerColor": "bg-[#D7FFC9]"
+  }
+]
