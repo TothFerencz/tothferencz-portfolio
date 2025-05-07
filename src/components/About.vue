@@ -25,9 +25,11 @@
           I am committed to delivering cutting-edge solutions that redefine the digital landscape.
         </p>
 
-        <button class="mt-6 px-6 p-4 bg-black text-white rounded-full hover:bg-gray-800 transition">
-          LEARN MORE
-        </button>
+<button class="mt-6 px-4 py-3 bg-black text-white text-sm rounded-full border border-black transition-all duration-300 hover:px-6 hover:bg-gray-900 hover:cursor-pointer">
+  LEARN MORE
+</button>
+
+
       </div>
     </transition>
   </section>

@@ -1,24 +1,21 @@
 <template>
-  <div class="relative bg-white text-black overflow-hidden container mx-auto">
+  <div class="relative bg-white text-black overflow-hidden">
     <!-- Szöveg blokk -->
-    <div
-      ref="textSection"
-      class="flex flex-col md:flex-row justify-center items-center gap-4 py-24 md:py-32 transition-all duration-700 ease-out"
-      :class="{
-        'opacity-100 scale-100 translate-y-0': visible,
-        'opacity-0 scale-75 translate-y-20': !visible
-      }"
-    >
-      <h1 class="text-5xl md:text-9xl uppercase leading-none font-prm-black transition-all duration-700">
-        FERENCZ
-      </h1>
-      <h1 class="text-5xl md:text-9xl uppercase leading-none font-prm-black transition-all duration-700">
-        TOTH
-      </h1>
-    </div>
+ <div
+  ref="textSection"
+  class="text-center py-24 md:py-32 transition-all duration-700 ease-out"
+  :class="{
+    'opacity-100 scale-100 translate-y-0': visible,
+    'opacity-0 scale-75 translate-y-20': !visible
+  }"
+>
+ <h1 class="font-bold text-[10vw] uppercase leading-none">
+  FERENCZ TOTH
+</h1>
+</div>
 
     <!-- 16:9 képarányú kép parallax nélkül -->
-    <div class="relative pb-16">
+    <div class="w-full relative pb-16 mx-auto">
       <div class="w-full aspect-[16/9] overflow-hidden rounded-[2rem] shadow-lg">
         <img
           src="../assets/headerimage.png"
@@ -28,11 +25,6 @@
       </div>
 
       <!-- Scroll down animáció a kép alján -->
-      <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2">
-        <div class="w-[30px] h-[50px] border-2 border-white rounded-full flex items-start justify-center">
-          <div class="w-1 h-3 bg-white rounded-full animate-scroll-bounce mt-2"></div>
-        </div>
-      </div>
     </div>
   </div>
 </template>

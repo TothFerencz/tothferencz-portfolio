@@ -2,22 +2,31 @@
   {
     "title": "eCommerce Banner",
     "image": "ecommercebanner.png",
-     "tags": ["Laravel", "PHP", "HTML" ,"CSS", "JavaScript", "Tailwind"],
+    "tags": ["Laravel", "PHP", "HTML", "CSS", "JavaScript", "Tailwind"],
     "bgColor": "bg-[#366f62]",
-    "footerColor": "bg-[#f0f9f8]"
+    "footerColor": "bg-[#f0f9f8]",
+    "link": "https://ecommercebanner.com",
+    "challenge": "Designing a dynamic and visually appealing eCommerce banner system that could adapt to various campaigns, support multilingual content, and work seamlessly across devices and screen sizes.",
+    "approach": "We developed a modular Laravel-based backend with Tailwind-powered frontend components. By implementing reusable Vue components and conditional rendering logic, we created an easily manageable and scalable system for marketing teams."
   },
   {
     "title": "Arkanala",
     "image": "arkanala.png",
-    "tags": ["Laravel", "PHP", "HTML" ,"CSS", "JavaScript", "Tailwind"],
+    "tags": ["Laravel", "PHP", "HTML", "CSS", "JavaScript", "Tailwind"],
     "bgColor": "bg-[#141e31]",
-    "footerColor": "bg-[#efc151]"
+    "footerColor": "bg-[#efc151]",
+    "link": "https://arkanala.com",
+    "challenge": "Building a custom content management system for a media publishing platform with advanced permission control, multimedia asset handling, and high-performance search features.",
+    "approach": "We architected a robust backend using Laravel’s advanced features such as policies, job queues, and media storage. Tailwind CSS was used to craft an admin interface that supports responsive editing workflows and live previews."
   },
   {
     "title": "Expleo",
     "image": "expleo.png",
-    "tags": ["Laravel", "PHP", "HTML" ,"CSS", "JavaScript", "Tailwind"],
+    "tags": ["Laravel", "PHP", "HTML", "CSS", "JavaScript", "Tailwind"],
     "bgColor": "bg-[#005d29]",
-    "footerColor": "bg-[#52ae32]"
+    "footerColor": "bg-[#90C67C]",
+    "link": "https://expleo.hu",
+    "challenge": "Creating a secure internal platform for an enterprise client to manage audits, workflows, and document versioning across multiple departments with role-based access.",
+    "approach": "We implemented a multi-role permission system using Laravel's Gates and Policies, with frontend components optimized for clarity and speed. Audit trails and activity logs ensured compliance, while Tailwind ensured design consistency."
   }
 ]

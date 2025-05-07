@@ -31,15 +31,16 @@ const showUnderConstruction = import.meta.env.VITE_UNDER_CONSTRUCTION === 'true'
   </div>
 
   <!-- NORMÁL APP nézet -->
-  <div v-else class="font-prm bg-neutral-50">
+  <div v-else class="font-['DM Sans'] bg-neutral-50">
     <header>
       <SpeedInsights />
       <Navbar />
+ <MiniHeadline />
     </header>
 
     <main>
       <template v-if="route.path === '/'">
-        <MiniHeadline />
+       
         <Headline />
         <About />
         <RecentProjects />
