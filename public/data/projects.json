@@ -1,6 +1,6 @@
 [
   {
-    "title": "eCommerce Banner",
+    "title": "eCommerceBanner",
     "image": "ecommercebanner.png",
     "tags": ["Laravel", "PHP", "HTML", "CSS", "JavaScript", "Tailwind"],
     "bgColor": "bg-[#366f62]",

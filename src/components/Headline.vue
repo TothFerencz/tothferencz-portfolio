@@ -9,9 +9,11 @@
     'opacity-0 scale-75 translate-y-20': !visible
   }"
 >
-<h1 class="w-full font-[900] text-9xl  uppercase leading-none">
-  FERENCZ TOTH
+<h1 class="w-full font-[900] uppercase leading-none text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl">
+  <span class="block sm:inline">FERENCZ</span>
+  <span class="block sm:inline">TOTH</span>
 </h1>
+
 </div>
 
    

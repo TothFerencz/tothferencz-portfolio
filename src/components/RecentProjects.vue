@@ -7,7 +7,8 @@
     </h2>
 
     <!-- Kártyák -->
-    <div class="grid md:grid-cols-3 gap-8 mt-16">
+    <div class="grid xl:grid-cols-3 gap-8 mt-16">
+
       <router-link
         v-for="project in projects"
         :key="project.title"
@@ -16,7 +17,8 @@
           'rounded-2xl overflow-hidden border-0 transition-transform duration-300 cursor-pointer group',
           project.bgColor,
           'hover:scale-99',
-          'flex flex-col min-h-[550px]'
+          'flex flex-col min-h-[400px] sm:min-h-[450px] md:min-h-[500px] xl:min-h-[550px]'
+
         ]"
       >
         <!-- Kép -->
@@ -45,17 +47,20 @@
     </div>
 
     <!-- Gomb -->
-    <button
-      class="mt-12 px-4 py-3 bg-black text-white text-sm rounded-full border border-black transition-all duration-300 hover:px-6 hover:bg-gray-900 hover:cursor-pointer"
-    >
-      VIEW MORE
-    </button>
+   <button
+  @click="goToPortfolio"
+  class="mt-12 px-4 py-3 bg-black text-white text-sm rounded-full border border-black transition-all duration-300 hover:px-6 hover:bg-gray-900 hover:cursor-pointer"
+>
+  VIEW MORE
+</button>
   </section>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue';
+import { useRouter } from 'vue-router';
 
+const router = useRouter();
 const projects = ref([]);
 
 const slugify = (text) => {
@@ -66,4 +71,8 @@ onMounted(async () => {
 	const res = await fetch('/data/projects.json');
 	projects.value = await res.json();
 });
+
+const goToPortfolio = () => {
+	router.push('/portfolio');
+};
 </script>

@@ -63,7 +63,7 @@ import { useRouter } from 'vue-router';
 
 const router = useRouter();
 
-const navItems = ['HOME', 'PORTFOLIO', 'ABOUT', 'CONTACT ME'];
+const navItems = ['HOME', 'PORTFOLIO', 'CONTACT ME'];
 const isMenuOpen = ref(false);
 const activeItem = ref(navItems[0]);
 
