@@ -6,6 +6,7 @@ import Headline from './components/Headline.vue';
 import About from './components/About.vue';
 import RecentProjects from './components/RecentProjects.vue';
 import MiniHeadline from './components/MiniHeadline.vue';
+import MyStacks from './components/MyStacks.vue';
 
 import { SpeedInsights } from '@vercel/speed-insights/vue';
 
@@ -44,6 +45,7 @@ const showUnderConstruction = import.meta.env.VITE_UNDER_CONSTRUCTION === 'true'
         <Headline />
         <About />
         <RecentProjects />
+		<MyStacks />
       </template>
       <template v-else>
         <router-view />

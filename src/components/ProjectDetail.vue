@@ -1,12 +1,12 @@
 <template>
-  <section class="container mx-auto py-16">
+  <section class="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
     <div v-if="project" class="space-y-20">
       <!-- Projekt név + tagek -->
       <div class="text-left">
-        <h1 class="text-6xl font-extrabold tracking-tight mb-4">
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-4">
           {{ project.title }}
         </h1>
-        <div class="flex flex-wrap ">
+        <div class="flex flex-wrap gap-2">
           <span
             v-for="tag in project.tags"
             :key="tag"
@@ -17,24 +17,24 @@
         </div>
       </div>
 
-      <!-- Hero Kép háttérrel -->
-      <div :class="[project.bgColor, 'rounded-3xl p-6']">
+      <!-- Hero kép háttérrel -->
+          <div :class="[project.bgColor, 'rounded-3xl p-6']">
         <img
           :src="`/images/${project.image}`"
           :alt="project.title"
-          class="rounded-2xl mx-auto"
+          class="rounded-2xl  mx-auto"
         />
       </div>
 
       <!-- ABOUT THE PROJECT -->
-      <div class="grid md:grid-cols-2 gap-10 items-start">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
         <div>
-          <h2 class="text-3xl font-bold mb-6">ABOUT THE PROJECT</h2>
+          <h2 class="text-2xl sm:text-3xl font-bold mb-6">ABOUT THE PROJECT</h2>
           <a
             v-if="project.link"
             :href="project.link"
             target="_blank"
-            class="inline-flex items-center mt-6 px-4 py-3 bg-black text-white text-sm rounded-full border border-black transition-all duration-300 hover:px-6 hover:bg-gray-900 hover:cursor-pointer"
+            class="inline-flex items-center mt-6 px-4 py-2 sm:px-4 sm:py-3 bg-black text-white text-sm rounded-full border border-black transition-all duration-300 hover:px-6 hover:bg-gray-900 hover:cursor-pointer"
           >
             VISIT PROJECT
             <svg
@@ -50,14 +50,14 @@
         </div>
         <div class="space-y-10">
           <div>
-            <h3 class="text-xl font-semibold mb-2">Challenge</h3>
-            <p class="text-gray-700 leading-relaxed">
+            <h3 class="text-lg sm:text-xl font-semibold mb-2">Challenge</h3>
+            <p class="text-gray-700 leading-relaxed text-sm sm:text-base">
               {{ project.challenge }}
             </p>
           </div>
           <div>
-            <h3 class="text-xl font-semibold mb-2">Approach</h3>
-            <p class="text-gray-700 leading-relaxed">
+            <h3 class="text-lg sm:text-xl font-semibold mb-2">Approach</h3>
+            <p class="text-gray-700 leading-relaxed text-sm sm:text-base">
               {{ project.approach }}
             </p>
           </div>

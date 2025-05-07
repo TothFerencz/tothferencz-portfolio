@@ -8,8 +8,8 @@
                 :class="[
       'border border-neutral-400 rounded-full text-xs transition-all duration-300 ease-in-out cursor-pointer',
       activeItem === item
-        ? 'px-4 py-2 bg-black text-white hover:px-4 hover:py-2'
-        : 'px-4 py-2 text-neutral-900 hover:bg-black hover:text-white hover:px-5 hover:py-2'
+        ? 'px-6 py-3 bg-black text-white hover:px-7 hover:py-2'
+        : 'px-6 py-3 text-neutral-900 hover:bg-black hover:text-white hover:px-7 hover:py-2'
     ]"
   >
                 {{ item }}

@@ -54,18 +54,4 @@ onUnmounted(() => {
 });
 </script>
 
-<style scoped>
-/* Animáció kezdő állapotai */
-.opacity-0 {
-	opacity: 0;
-}
-.scale-75 {
-	transform: scale(0.75);
-}
-.opacity-100 {
-	opacity: 1;
-}
-.scale-100 {
-	transform: scale(1);
-}
-</style>
+
