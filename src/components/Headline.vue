@@ -10,9 +10,10 @@
   }"
 >
 <h1 class="w-full font-[900] uppercase leading-none text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl">
-  <span class="block sm:inline">FERENCZ</span>
+  <span class="block sm:inline sm:mr-4">FERENCZ</span>
   <span class="block sm:inline">TOTH</span>
 </h1>
+
 
 </div>
 
