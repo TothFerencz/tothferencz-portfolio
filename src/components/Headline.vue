@@ -14,7 +14,7 @@
 </h1>
 </div>
 
-    <!-- 16:9 képarányú kép parallax nélkül -->
+   
     <div class="w-full relative pb-16 mx-auto">
       <div class="w-full aspect-[16/9] overflow-hidden rounded-[2rem] shadow-lg">
         <img
