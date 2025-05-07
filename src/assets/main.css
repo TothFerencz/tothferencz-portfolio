@@ -34,11 +34,12 @@
 
 html, body {
   overflow: visible;
+scroll-behavior: smooth;
 
 }
 .container {
   width: 100%;
-  max-width: 110rem; /* Ez a Tailwind 'max-w-7xl' értéke, azaz 1280px */
+  max-width: clamp(320px, 90vw, 110rem);
   padding-left: 40px;
   padding-right: 40px;
   margin-left: auto;

@@ -6,7 +6,7 @@
         <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-4">
           {{ project.title }}
         </h1>
-        <div class="flex flex-wrap gap-2">
+        <div class="flex flex-wrap spaxe-y-2">
           <span
             v-for="tag in project.tags"
             :key="tag"

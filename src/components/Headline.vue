@@ -1,15 +1,15 @@
 <template>
-  <div class="relative bg-white text-black overflow-hidden">
+  <div class="relative  text-black overflow-hidden ">
     <!-- Szöveg blokk -->
  <div
   ref="textSection"
-  class="text-center py-24 md:py-32 transition-all duration-700 ease-out"
+  class="text-center py-24 md:py-32 transition-all duration-700 ease-out container mx-auto"
   :class="{
     'opacity-100 scale-100 translate-y-0': visible,
     'opacity-0 scale-75 translate-y-20': !visible
   }"
 >
- <h1 class="font-bold text-[10vw] uppercase leading-none">
+<h1 class="w-full font-[900] text-9xl  uppercase leading-none">
   FERENCZ TOTH
 </h1>
 </div>
