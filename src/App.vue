@@ -12,7 +12,7 @@ const route = useRoute();
 </script>
 
 <template >
-  <div class="font-prm bg-neutral-50">
+  <div class="font-prm bg-neutral-50 ">
     <header>
 <SpeedInsights/>
       <Navbar />

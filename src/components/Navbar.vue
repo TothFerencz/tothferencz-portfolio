@@ -1,5 +1,5 @@
 <template>
-  <nav class="flex justify-between items-center px-6 py-6 bg-neutral-50 relative z-50">
+  <nav class="flex justify-between items-center px-6 py-6 bg-neutral-50 relative z-50 container mx-auto">
     <div class="text-3xl font-bold text-neutral-900">FT</div>
 
     <!-- Desktop nav -->

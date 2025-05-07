@@ -1,5 +1,5 @@
 <template>
-  <section class="py-20 text-center">
+  <section class="py-20 text-center container mx-auto">
     <!-- Cím -->
     <h2 class="text-[48px] leading-none font-extrabold tracking-tight">
       <div>RECENT</div>
@@ -7,12 +7,12 @@
     </h2>
 
     <!-- Kártyák -->
-    <div class="grid md:grid-cols-3 gap-8 mt-16 px-4">
+    <div class="grid md:grid-cols-3 gap-8 mt-16 ">
       <div
         v-for="project in projects"
         :key="project.title"
         :class="[
-          'rounded-3xl overflow-hidden transition-transform duration-300 cursor-pointer group',
+          'rounded-2xl overflow-hidden border-0 transition-transform duration-300 cursor-pointer group ',
           project.bgColor,
           'hover:scale-99',
           'flex flex-col min-h-[550px]'
@@ -33,7 +33,7 @@
             <span
               v-for="tag in project.tags"
               :key="tag"
-              class="text-xs border border-black text-black px-2 py-1 rounded-full"
+              class="text-xs border border-gray-800 text-gray-800  px-2 py-1 rounded-full"
             >
               {{ tag.toUpperCase() }}
             </span>

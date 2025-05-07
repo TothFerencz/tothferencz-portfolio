@@ -1,7 +1,7 @@
 <template>
   <section
     ref="aboutSection"
-    class="min-h-screen flex flex-col items-center justify-center text-center px-4 overflow-hidden"
+    class="min-h-screen flex flex-col items-center justify-center text-center px-4 overflow-hidden container mx-auto"
   >
     <transition name="zoom-in">
       <div v-if="visible" class="space-y-6">

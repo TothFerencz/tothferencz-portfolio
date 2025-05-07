@@ -35,14 +35,15 @@
 
 html, body {
   overflow: visible;
-scroll-behavior: smooth;
+
 }
 .container {
-
+  width: 100%;
+  max-width: 110rem; /* Ez a Tailwind 'max-w-7xl' értéke, azaz 1280px */
+  padding-left: 40px;
+  padding-right: 40px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
 }
 
 @media (min-width: 640px) {
