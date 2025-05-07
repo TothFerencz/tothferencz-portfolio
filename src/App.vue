@@ -7,12 +7,14 @@ import About from './components/About.vue';
 import RecentProjects from './components/RecentProjects.vue';
 
 import MiniHeadline from './components/MiniHeadline.vue';
+import { SpeedInsights } from '@vercel/speed-insights/vue';
 const route = useRoute();
 </script>
 
 <template >
   <div class="font-prm bg-neutral-50">
     <header>
+<SpeedInsights/>
       <Navbar />
     </header>
 
