@@ -17,7 +17,7 @@
 
         <!-- szöveg -->
         <span class="leading-none ">
-          AVAILABLE AND EAGER TO LEND MY EXPERTISE TO GROUNDBREAKING DEVELOPMENT PROJECTS
+          OPEN TO NEW OPPORTUNITIES — LET'S BUILD SOMETHING INNOVATIVE TOGETHER
         </span>
       </div>
     </div>

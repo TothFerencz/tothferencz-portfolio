@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-[#12120f] text-gray-300 py-6 px-4 rounded-3xl">
+  <footer class="bg-[#12120f] text-gray-300 py-6 px-4 ">
     <div class="container mx-auto space-y-6">
       
       <!-- Felső sor: logo, gombok, ikonok -->
@@ -22,10 +22,9 @@
 
         <!-- Social ikonok -->
         <div class="flex items-center space-x-4 text-xl text-gray-400 md:relative">
-          <a href="#" class="hover:text-white"><i class="fab fa-facebook"></i></a>
-          <a href="#" class="hover:text-white"><i class="fab fa-twitter"></i></a>
-          <a href="#" class="hover:text-white"><i class="fab fa-linkedin"></i></a>
-          <a href="#" class="hover:text-white"><i class="fab fa-github"></i></a>
+          
+          <a href="www.linkedin.com/in/ferencz-toth" class="hover:text-white"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/TothFerencz" class="hover:text-white"><i class="fab fa-github"></i></a>
         </div>
       </div>
 

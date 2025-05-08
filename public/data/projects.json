@@ -6,8 +6,9 @@
     "bgColor": "bg-[#366f62]",
     "footerColor": "bg-[#f0f9f8]",
     "link": "https://ecommercebanner.com",
-    "challenge": "Designing a dynamic and visually appealing eCommerce banner system that could adapt to various campaigns, support multilingual content, and work seamlessly across devices and screen sizes.",
-    "approach": "We developed a modular Laravel-based backend with Tailwind-powered frontend components. By implementing reusable Vue components and conditional rendering logic, we created an easily manageable and scalable system for marketing teams."
+    "challenge": "Creating a system that automatically generates complete ad banners from just a single link, supporting responsive design and multilingual campaigns.",
+    "approach": "I independently developed the backend and frontend. The backend uses Laravel to parse and process data, while the frontend is built with Tailwind and Vue to render marketing-ready visuals dynamically, requiring minimal input from users.",
+    "visible": true
   },
   {
     "title": "Arkanala",
@@ -16,8 +17,9 @@
     "bgColor": "bg-[#141e31]",
     "footerColor": "bg-[#efc151]",
     "link": "https://arkanala.com",
-    "challenge": "Building a custom content management system for a media publishing platform with advanced permission control, multimedia asset handling, and high-performance search features.",
-    "approach": "We architected a robust backend using Laravel’s advanced features such as policies, job queues, and media storage. Tailwind CSS was used to craft an admin interface that supports responsive editing workflows and live previews."
+    "challenge": "Building an AI-powered prediction tool that assists users with forecasting using natural language input, integrated with OpenAI APIs.",
+    "approach": "I handled both frontend and backend independently. Laravel powers the API orchestration and business logic, while the frontend—built with Vue and Tailwind—delivers interactive responses. OpenAI's API was seamlessly integrated for generating predictive outputs based on user prompts.",
+    "visible": true
   },
   {
     "title": "Expleo",
@@ -26,7 +28,31 @@
     "bgColor": "bg-[#005d29]",
     "footerColor": "bg-[#90C67C]",
     "link": "https://expleo.hu",
-    "challenge": "Creating a secure internal platform for an enterprise client to manage audits, workflows, and document versioning across multiple departments with role-based access.",
-    "approach": "We implemented a multi-role permission system using Laravel's Gates and Policies, with frontend components optimized for clarity and speed. Audit trails and activity logs ensured compliance, while Tailwind ensured design consistency."
-  }
+    "challenge": "Uploading, managing and listing hundreds of products efficiently for different departments using a user-friendly interface.",
+    "approach": "I independently developed the backend and frontend. Using Filament Admin on top of Laravel, I created an interface to manage large volumes of data, with custom product upload tools and searchable listings. The frontend was styled with Tailwind for consistency.",
+    "visible": true
+  },
+{
+  "title": "Inthera",
+  "image": "inthera.png",
+  "tags": ["Laravel", "PHP", "HTML", "CSS", "JavaScript", "Tailwind"],
+  "bgColor": "bg-[#2E276C]",
+  "footerColor": "bg-[#dbdbee]",
+  "link": "https://inthera.com",
+  "challenge": "Delivering a blog platform for healthcare-related content, along with secure communication and real-time data updates.",
+  "approach": "I fully developed both the backend and frontend. The blog was managed through a custom CMS built with Laravel and Filament. Real-time patient data was handled with Laravel  while the frontend used Vue and Tailwind to ensure a secure and responsive user experience.",
+  "visible": true
+},
+{
+  "title": "MVS Systems",
+  "image": "mvs.png",
+  "tags": ["Laravel",  "PHP", "HTML", "CSS", "JavaScript", "Tailwind"],
+  "bgColor": "bg-[#ae1111]",
+  "footerColor": "bg-[#f1f0f0]",
+  "link": "https://mvs.com",
+  "challenge": "Creating a clean, responsive, and fast-loading landing page that reflects the brand and communicates core services clearly.",
+  "approach": "I independently developed both the backend and frontend. The backend was built with Laravel for maintainability, while the frontend used  Tailwind to ensure a modern, responsive design and smooth user experience.",
+  "visible": true
+}
+
 ]

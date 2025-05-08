@@ -1,27 +1,21 @@
 <template>
   <section class="min-h-screen flex flex-col items-center justify-center py-20 text-center container mx-auto">
-    <!-- Cím -->
-    <h2 class="text-[48px] leading-none font-extrabold tracking-tight">
+    <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight">
       <div>RECENT</div>
       <div>PROJECTS</div>
     </h2>
 
-    <!-- Kártyák -->
     <div class="grid xl:grid-cols-3 gap-8 mt-16">
-
       <router-link
-        v-for="project in projects"
+        v-for="project in visibleProjects"
         :key="project.title"
         :to="`/portfolio/${slugify(project.title)}`"
         :class="[
-          'rounded-2xl overflow-hidden border-0 transition-transform duration-300 cursor-pointer group',
+          'rounded-2xl overflow-hidden transition-transform duration-300 cursor-pointer group',
           project.bgColor,
-          'hover:scale-99',
-          'flex flex-col min-h-[400px] sm:min-h-[450px] md:min-h-[500px] xl:min-h-[550px]'
-
+          'hover:scale-99 flex flex-col min-h-[400px] sm:min-h-[450px] md:min-h-[500px] xl:min-h-[550px]'
         ]"
       >
-        <!-- Kép -->
         <div class="p-8 flex items-center justify-center flex-grow">
           <img
             :src="`/images/${project.image}`"
@@ -30,9 +24,8 @@
           />
         </div>
 
-        <!-- Lábléc -->
         <div :class="['p-5 text-left', project.footerColor]">
-          <div class="flex flex-wrap mb-2 ">
+          <div class="flex flex-wrap mb-2">
             <span
               v-for="tag in project.tags"
               :key="tag"
@@ -46,26 +39,25 @@
       </router-link>
     </div>
 
-    <!-- Gomb -->
-   <button
-  @click="goToPortfolio"
-  class="mt-12 px-4 py-3 bg-black text-white text-sm rounded-full border border-black transition-all duration-300 hover:px-6 hover:bg-gray-900 hover:cursor-pointer"
->
-  VIEW MORE
-</button>
+    <button
+      @click="goToPortfolio"
+      class="mt-12 px-4 py-3 bg-black text-white text-sm rounded-full border border-black transition-all duration-300 hover:px-6 hover:bg-gray-900"
+    >
+      VIEW MORE
+    </button>
   </section>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, computed, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 
 const router = useRouter();
 const projects = ref([]);
 
-const slugify = (text) => {
-	return text.toLowerCase().replace(/\s+/g, '-');
-};
+const slugify = (text) => text.toLowerCase().replace(/\s+/g, '-');
+
+const visibleProjects = computed(() => projects.value.filter((p) => p.visible).slice(0, 3));
 
 onMounted(async () => {
 	const res = await fetch('/data/projects.json');

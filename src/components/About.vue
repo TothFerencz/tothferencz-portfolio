@@ -25,10 +25,12 @@
           I am committed to delivering cutting-edge solutions that redefine the digital landscape.
         </p>
 
-<button class="mt-6 px-4 py-3 bg-black text-white text-sm rounded-full border border-black transition-all duration-300 hover:px-6 hover:bg-gray-900 hover:cursor-pointer">
-  LEARN MORE
-</button>
-
+    <button
+      @click="goToPortfolio"
+      class="mt-12 px-4 py-3 bg-black text-white text-sm rounded-full border border-black transition-all duration-300 hover:px-6 hover:bg-gray-900"
+    >
+      VIEW MY WORK
+    </button>
 
       </div>
     </transition>
@@ -37,11 +39,15 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
+import { useRouter } from 'vue-router';
+const router = useRouter();
 
 const visible = ref(false);
 const aboutSection = ref(null);
 const parallaxOffset = ref(0);
-
+const goToPortfolio = () => {
+	router.push('/portfolio');
+};
 const handleScroll = () => {
 	if (!aboutSection.value) return;
 	const rect = aboutSection.value.getBoundingClientRect();

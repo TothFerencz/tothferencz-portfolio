@@ -4,15 +4,15 @@
     <img
       src="../assets/stacks.png"
       alt="Background"
-      class="absolute inset-0 w-full h-full object-cover z-0 rounded-3xl"
+      class="absolute inset-0 w-full h-full object-cover z-0 "
     />
 
     <!-- Overlay -->
-    <div class="absolute inset-0 bg-black/60 z-10 rounded-3xl"></div>
+    <div class="absolute inset-0 bg-black/60 z-10 "></div>
 
     <!-- Content -->
     <div class="relative z-20 container mx-auto">
-      <h1 class="text-4xl sm:text-4xl md:text-5xl font-bold text-center mb-12 conta">
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-center mb-6">
 		MY STACKS
       </h1>
 

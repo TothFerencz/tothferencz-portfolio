@@ -29,7 +29,7 @@
       <!-- ABOUT THE PROJECT -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
         <div>
-          <h2 class="text-2xl sm:text-3xl font-bold mb-6">ABOUT THE PROJECT</h2>
+          <h2 class="text-3xl sm:text-3xl font-bold mb-6">ABOUT THE PROJECT</h2>
           <a
             v-if="project.link"
             :href="project.link"
@@ -66,12 +66,14 @@
     </div>
 
     <div v-else class="text-center text-gray-500 text-lg">Project not found.</div>
+<ProjectList />
   </section>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
+import ProjectList from './ProjectList.vue';
 
 const route = useRoute();
 const project = ref(null);

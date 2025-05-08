@@ -7,16 +7,16 @@
     </h2>
  
     <!-- Projekt kártyák -->
-    <div class="grid md:grid-cols-2 gap-12 mt-20">
+    <div class="grid md:grid-cols-2 gap-12 mt-20 items-stretch">
       <router-link
         v-for="project in projects"
         :key="project.title"
         :to="`/portfolio/${slugify(project.title)}`"
-        class="rounded-3xl overflow-hidden transition-transform transform hover:scale-[0.99] shadow-md"
+        class="rounded-2xl overflow-hidden transition-transform transform hover:scale-[0.99] shadow-md flex flex-col h-full"
         :class="project.bgColor"
       >
         <!-- Kép -->
-        <div class="p-10 flex items-center justify-center min-h-[300px] md:min-h-[400px] xl:min-h-[500px]">
+        <div class="p-10 flex items-center justify-center flex-grow min-h-[300px] md:min-h-[400px] xl:min-h-[500px]">
           <img
             :src="`/images/${project.image}`"
             alt=""
@@ -25,8 +25,8 @@
         </div>
 
         <!-- Lábléc -->
-        <div :class="['p-6', project.footerColor]">
-          <div class="flex flex-wrap  mb-3">
+        <div :class="['p-5', project.footerColor]">
+          <div class="flex flex-wrap mb-2">
             <span
               v-for="tag in project.tags"
               :key="tag"
@@ -39,9 +39,6 @@
         </div>
       </router-link>
     </div>
-
-    <!-- Gomb -->
-   
   </section>
 </template>
 
