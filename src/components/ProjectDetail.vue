@@ -71,7 +71,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import ProjectList from './ProjectList.vue';
 
@@ -80,7 +80,7 @@ const project = ref(null);
 
 const slugify = (text) => text.toLowerCase().replace(/\s+/g, '-');
 
-onMounted(async () => {
+const loadProject = async () => {
 	try {
 		const res = await fetch('/data/projects.json');
 		const data = await res.json();
@@ -89,5 +89,16 @@ onMounted(async () => {
 	} catch (err) {
 		console.error('Failed to load project data:', err);
 	}
-});
+};
+
+onMounted(loadProject);
+
+
+watch(
+	() => route.params.projectName,
+	() => {
+		loadProject();
+	}
+);
 </script>
+

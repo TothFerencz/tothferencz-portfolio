@@ -20,7 +20,7 @@
           <img
             :src="`/images/${project.image}`"
             alt=""
-            class="rounded-xl transition-transform duration-300 transform group-hover:scale-105 max-h-full"
+            class="rounded-lg transition-transform duration-300 transform group-hover:scale-105 max-h-full"
           />
         </div>
 
