@@ -20,13 +20,16 @@
           </button>
         </div>
 
-        <!-- Social ikonok -->
-        <div class="flex items-center space-x-4 text-xl text-gray-400 md:relative">
-          
-          <a href="www.linkedin.com/in/ferencz-toth" class="hover:text-white"><i class="fab fa-linkedin"></i></a>
-          <a href="https://github.com/TothFerencz" class="hover:text-white"><i class="fab fa-github"></i></a>
-        </div>
-      </div>
+       <!-- Social ikonok -->
+<div class="flex items-center space-x-4 text-xl text-gray-400 md:relative">
+  <a href="https://www.linkedin.com/in/ferencz-toth" target="_blank" rel="noopener" class="hover:text-white">
+    <i class="fab fa-linkedin"></i>
+  </a>
+  <a href="https://github.com/TothFerencz" target="_blank" rel="noopener" class="hover:text-white">
+    <i class="fab fa-github"></i>
+  </a>
+</div>
+	  </div>
 
       <hr class="border-gray-700" />
 
