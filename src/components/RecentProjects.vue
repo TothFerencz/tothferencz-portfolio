@@ -41,7 +41,7 @@
 
     <button
       @click="goToPortfolio"
-      class="mt-12 px-4 py-3 bg-black text-white text-sm rounded-full border border-black transition-all duration-300 hover:px-6 hover:bg-gray-900"
+      class="mt-12 px-4 py-3 bg-black text-white text-sm rounded-full border border-black transition-all duration-300 hover:px-6 hover:bg-gray-900 cursor-pointer"
     >
       VIEW MORE
     </button>
