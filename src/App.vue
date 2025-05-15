@@ -1,5 +1,4 @@
-<script setup>
-import { ref, nextTick, onMounted } from 'vue';
+<script>
 import PageReveal from './components/PageReveal.vue';
 import Navbar from './components/Navbar.vue';
 import Headline from './components/Headline.vue';
@@ -7,51 +6,69 @@ import ProjectsGrid from './components/ProjectsGrid.vue';
 import Footer from './components/Footer.vue';
 import { SpeedInsights } from '@vercel/speed-insights/vue';
 import { useAnimations } from './composables/useAnimations.js';
+import Lenis from '@studio-freight/lenis';
 
-const { animateIn } = useAnimations();
-const revealed = ref(false);
-const isMaintenance = ref(false);
+export default {
+	components: {
+		PageReveal,
+		Navbar,
+		Headline,
+		ProjectsGrid,
+		Footer,
+		SpeedInsights
+	},
+	data() {
+		return {
+			revealed: false,
+			lenis: null
+		};
+	},
+	methods: {
+		handleRevealDone() {
+			this.revealed = true;
 
-onMounted(() => {
-	// Show maintenance message on the root URL
-	if (window.location.hostname === 'www.ferencztoth.site' && window.location.pathname === '/') {
-		isMaintenance.value = true;
+			this.$nextTick(() => {
+				const { animateIn } = useAnimations();
+				animateIn();
+
+				this.initLenis();
+			});
+		},
+		initLenis() {
+			this.lenis = new Lenis({
+				smooth: true,
+				direction: 'vertical',
+				gestureDirection: 'vertical',
+				smoothTouch: false
+			});
+
+			const raf = (time) => {
+				this.lenis.raf(time);
+				requestAnimationFrame(raf);
+			};
+
+			requestAnimationFrame(raf);
+		}
 	}
-});
-
-function handleRevealDone() {
-	revealed.value = true;
-
-	nextTick(() => {
-		animateIn();
-	});
-}
+};
 </script>
 
 <template>
-  <div>
-    <!-- Maintenance state -->
-    <div v-if="isMaintenance" class="flex items-center justify-center h-screen bg-white">
-      <h1 class="text-2xl font-semibold">Page under maintenance</h1>
-    </div>
+  <div class="relative bg-[#f2f2f2] overflow-hidden">
+    <PageReveal @done="handleRevealDone" />
 
-    <!-- Normal site content -->
-    <div v-else class="relative bg-[#f2f2f2] overflow-hidden">
-      <PageReveal @done="handleRevealDone" />
+    <div v-if="revealed">
+      <header>
+        <SpeedInsights />
+        <Navbar />
+        <Headline />
+      </header>
 
-      <div>
-        <header>
-          <SpeedInsights />
-          <Navbar />
-          <Headline />
-        </header>
+      <main>
+        <ProjectsGrid />
+      </main>
 
-        <main>
-          <ProjectsGrid />
-        </main>
-
-        <Footer />
-      </div>
+      <Footer />
     </div>
   </div>
 </template>
@@ -60,6 +77,9 @@ function handleRevealDone() {
 html,
 body {
 	background: #f2f2f2;
-	scroll-behavior: smooth;
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+	/* scroll-behavior: smooth; -- ezt töröld, ha Lenis van */
 }
 </style>

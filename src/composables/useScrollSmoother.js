@@ -1,9 +1,10 @@
 import { gsap } from 'gsap';
 import ScrollSmoother from 'gsap/ScrollSmoother';
-import ScrollTrigger from 'gsap/ScrollTrigger'; // ⬅️ EZ HIÁNYZOTT!
+import ScrollTrigger from 'gsap/ScrollTrigger';
 
-gsap.registerPlugin(ScrollSmoother, ScrollTrigger); // ⬅️ Mindkettőt regisztráljuk
+gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
 
+// ⬇️ IDE KERÜL a smoother globálisan
 let smoother = null;
 
 export function useScrollSmoother() {
@@ -12,7 +13,6 @@ export function useScrollSmoother() {
 
 		const wrapper = document.querySelector('#smooth-wrapper');
 		const content = document.querySelector('#smooth-content');
-
 		if (!wrapper || !content) {
 			console.warn('ScrollSmoother: wrapper/content elem nem található.');
 			return;
@@ -28,5 +28,21 @@ export function useScrollSmoother() {
 		});
 	}
 
-	return { initSmoother };
+	function disableSmoother() {
+		if (smoother) {
+			smoother.paused(true);
+		}
+	}
+
+	function enableSmoother() {
+		if (smoother) {
+			smoother.paused(false);
+		}
+	}
+
+	return {
+		initSmoother,
+		disableSmoother,
+		enableSmoother,
+	};
 }
