@@ -1,22 +1,47 @@
 [
+
   {
     "title": "Expleo",
+    "slug": "expleo",
     "category": "Web Development",
-    "image": "expleo.png"
+    "client": "Expleo",
+    "service": "Website",
+    "date": "Jan 2024",
+    "summary": "Web design and development for Expleo with a focus on responsive layout and corporate identity integration.",
+    "image": "expleo.png",
+    "url": "https://expleo.com"
   },
   {
     "title": "MVS",
+    "slug": "mvs",
     "category": "Web Development",
-    "image": "mvs.png"
-  }  
-,{
-    "title": "Inthera",
-    "category": "Web Development",
-    "image": "inthera.png"
+    "client": "MVS",
+    "service": "Corporate Site",
+    "date": "Feb 2024",
+    "summary": "Rebranding and full-stack web development for MVS. Emphasis on minimal UI/UX and performance.",
+    "image": "mvs.png",
+    "url": "https://mvs.com"
   },
   {
-    "title": "arkanala",
+    "title": "Inthera",
+    "slug": "inthera",
     "category": "Web Development",
-    "image": "arkanala.png"
+    "client": "Inthera",
+    "service": "Web App",
+    "date": "Apr 2024",
+    "summary": "SPA-fejlesztés Vue-ban, real-time dashboard funkciókkal és egyedi komponensekkel Inthera számára.",
+    "image": "inthera.png",
+    "url": "https://inthera.io"
+  },
+  {
+    "title": "Arkanala",
+    "slug": "arkanala",
+    "category": "Web Development",
+    "client": "Arkanala",
+    "service": "Portfolio",
+    "date": "May 2024",
+    "summary": "Arkanala művészeti portfólió oldal — fullscreen dizájn, egyedi animációk és dark mode támogatás.",
+    "image": "arkanala.png",
+    "url": "https://arkanala.art"
   }
 ]

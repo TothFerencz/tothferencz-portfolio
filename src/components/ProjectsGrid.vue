@@ -6,31 +6,31 @@
       class="space-y-4 transition-all duration-700 ease-out transform"
       :class="showLinks[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'"
     >
-      <div
-        class="relative group cursor-pointer"
-        @mouseenter="() => showCursor(index)"
-        @mouseleave="hideCursor"
-        @mousemove="(e) => moveEffect(e, index)"
-      >
-        <img
-          :src="`/mockups/${project.image}`"
-          :alt="project.title"
-          class="w-full rounded-md object-cover transition duration-200 group-hover:brightness-75"
-        />
-
-        <!-- Hoverre megjelenő VIEW gomb -->
-        <div
-          v-if="activeIndex === index"
-          class="absolute w-20 h-20 rounded-full bg-black text-white flex items-center justify-center text-sm font-bold pointer-events-none transition-transform duration-100 ease-out"
-          :style="{
-            left: '50%',
-            top: '50%',
-            transform: `translate(-50%, -50%) translate(${offset.x}px, ${offset.y}px)`
-          }"
-        >
-          VIEW
-        </div>
-      </div>
+     <div
+  class="relative group cursor-pointer"
+  @click="goToDetails(project.slug)"
+  @mouseenter="() => showCursor(index)"
+  @mouseleave="hideCursor"
+  @mousemove="(e) => moveEffect(e, index)"
+>
+  <img
+    :src="`/mockups/${project.image}`"
+    :alt="project.title"
+    class="w-full rounded-md object-cover transition duration-200 group-hover:brightness-75"
+  />
+  <!-- VIEW hover effekthez -->
+  <div
+    v-if="activeIndex === index"
+    class="absolute w-20 h-20 rounded-full bg-black text-white flex items-center justify-center text-sm font-bold pointer-events-none transition-transform duration-100 ease-out"
+    :style="{
+      left: '50%',
+      top: '50%',
+      transform: `translate(-50%, -50%) translate(${offset.x}px, ${offset.y}px)`
+    }"
+  >
+    VIEW
+  </div>
+</div>
 
       <div>
         <h2 class="uppercase text-base md:text-lg lg:text-xl font-inter font-[600] tracking-wide">
@@ -67,7 +67,14 @@
 
 <script setup>
 import { ref, reactive, onMounted, nextTick } from 'vue';
-import { useAnimations } from '@/composables/useAnimations';
+import { useAnimations } from '@/composables/useAnimationsMenu';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+function goToDetails(slug) {
+	router.push(`/works/${slug}`);
+}
 
 const projects = ref([]);
 const activeIndex = ref(null);

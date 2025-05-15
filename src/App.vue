@@ -1,70 +1,95 @@
 <template>
-  <div class="relative bg-[#f2f2f2] overflow-hidden min-h-screen flex items-center justify-center">
-    <template v-if="underMaintenance">
-      <h1 class="text-2xl font-semibold text-center">Page under maintenance</h1>
-    </template>
+  <div class="relative bg-[#f2f2f2] overflow-hidden">
+    <div v-if="isMaintenance">
+      <div class="h-screen flex items-center justify-center text-center text-xl font-semibold">
+        Page under maintenance
+      </div>
+    </div>
+    <div v-else>
+      <!-- Oldalváltásnál újrainduló page reveal -->
+      <PageReveal :key="$route.fullPath" @done="handleRevealDone" />
 
-    <template v-else>
-      <PageReveal @done="handleRevealDone" />
-
+      <!-- Tartalom csak akkor jelenik meg, ha a PageReveal lefutott -->
       <div v-if="revealed">
-        <header>
-          <SpeedInsights />
-          <Navbar />
-          <Headline />
-        </header>
+        <SpeedInsights />
+        <Navbar />
 
         <main>
-          <ProjectsGrid />
+          <RouterView />
         </main>
 
         <Footer />
       </div>
-    </template>
+    </div>
   </div>
 </template>
+
 <script>
-import PageReveal from './components/PageReveal.vue';
-import Navbar from './components/Navbar.vue';
-import Headline from './components/Headline.vue';
-import ProjectsGrid from './components/ProjectsGrid.vue';
-import Footer from './components/Footer.vue';
 import { SpeedInsights } from '@vercel/speed-insights/vue';
-import { useAnimations } from './composables/useAnimations.js';
-import { useLenis } from './composables/useLenis.js';
+import Navbar from './components/Navbar.vue';
+import Footer from './components/Footer.vue';
+import PageReveal from './components/PageReveal.vue';
+import Lenis from '@studio-freight/lenis';
+import { usePageAnimations } from './composables/usePageAnimations.js'; // ÚJ
 
 export default {
 	components: {
-		PageReveal,
+		SpeedInsights,
 		Navbar,
-		Headline,
-		ProjectsGrid,
 		Footer,
-		SpeedInsights
+		PageReveal
 	},
 	data() {
 		return {
 			revealed: false,
-			underMaintenance: false
+			lenis: null
 		};
 	},
-	mounted() {
-		if (window.location.hostname === 'www.ferencztoth.site') {
-			this.underMaintenance = true;
+	watch: {
+		// Minden route váltásnál újraindul a PageReveal és animáció
+		$route() {
+			this.revealed = false;
 		}
 	},
 	methods: {
 		handleRevealDone() {
-			if (this.underMaintenance) return;
-
 			this.revealed = true;
 
 			this.$nextTick(() => {
-				const { animateIn } = useAnimations();
+				// DOM megjelent -> indítjuk az animációkat
+				const { animateIn } = usePageAnimations();
 				animateIn();
-				useLenis();
+
+				this.initLenis();
 			});
+		},
+		initLenis() {
+			if (this.lenis) return;
+
+			this.lenis = new Lenis({
+				smooth: true,
+				direction: 'vertical',
+				gestureDirection: 'vertical',
+				smoothTouch: false
+			});
+
+			const raf = (time) => {
+				this.lenis.raf(time);
+				requestAnimationFrame(raf);
+			};
+
+			requestAnimationFrame(raf);
 		}
 	}
 };
 </script>
+
+<style>
+html,
+body {
+	background: #f2f2f2;
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+}
+</style>

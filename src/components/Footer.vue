@@ -53,7 +53,7 @@
 
 <script setup>
 import { onMounted } from 'vue';
-import { useAnimations } from '@/composables/useAnimations';
+import { useAnimations } from '@/composables/useAnimationsMenu';
 import ArrowIcon from '@/assets/arrow-white.svg';
 
 const { showLinks, animateIn } = useAnimations(2, 0);
