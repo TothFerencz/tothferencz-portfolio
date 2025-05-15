@@ -1,65 +1,56 @@
 <template>
-  <div class="relative text-black">
-    <!-- Szöveg blokk -->
+  <section
+    class="max-w-7xl mx-auto flex flex-col items-center justify-start pt-24 pb-24 px-4 text-black
+           "
+  >
+<h1
+  class="text-center text-4xl md:text-6xl lg:text-8xl font-extrabold uppercase
+         transition-all duration-700 ease-out transform"
+  :class="showLinks[0]
+    ? 'opacity-100 translate-y-0'
+    : 'opacity-0 translate-y-4'"
+>
+  <span>I am a</span><br />
+  <span>full stack developer</span><br />
+  <span>based in Romania</span>
+</h1>
+    <!-- Egy közös group a hover-hez -->
     <div
-      ref="textSection"
-      class="text-center py-24 md:py-32  container mx-auto"
-      :class="{
-      
-      }"
+      class="mt-8 flex items-center space-x-4 transition-all duration-700 ease-out transform group"
+      :class="showLinks[1]
+        ? 'opacity-100 translate-y-0'
+        : 'opacity-0 translate-y-4'"
     >
-      <h1 class="w-full font-[900] uppercase leading-none text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl">
-        <span class="block sm:inline sm:mr-4">FERENCZ</span>
-        <span class="block sm:inline">TOTH</span>
-      </h1>
-    </div>
+      <!-- IKON KÖRREL -->
+      <div
+        class="w-12 h-12 border border-gray-500 rounded-full flex items-center justify-center
+               transform transition-transform duration-300 group-hover:scale-125 cursor-pointer"
+      >
+        <img
+          :src="ArrowIcon"
+          alt="arrow"
+          class="w-4 h-4 transform transition-transform duration-300
+                 group-hover:rotate-45 group-hover:"
+        />
+      </div>
 
-    <!-- Parallax kép szekció -->
-    <div class="relative w-full overflow-hidden h-[100vh]">
-      <img
-        ref="parallaxImage"
-        src="../assets/headerimage.png"
-        alt="Ferencz Toth"
-        class="absolute top-0 left-0 w-full h-auto object-cover will-change-transform"
-        style="min-height: 120vh"
-      />
+      <a
+        href="#contact"
+        class="uppercase text-base md:text-lg lg:text-xl font-inter font-[600] tracking-wide
+               cursor-pointer transition-colors duration-300"
+      >
+        LET’S CONNECT
+      </a>
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
+import { onMounted } from 'vue';
+import { useAnimations } from '@/composables/useAnimations';
+import ArrowIcon from '@/assets/arrow.svg';
 
-const visible = ref(false);
-const textSection = ref(null);
-const parallaxImage = ref(null);
-
-const handleParallax = () => {
-	if (parallaxImage.value) {
-		const scrollY = window.scrollY;
-		const offset = scrollY * 0.3;
-		parallaxImage.value.style.transform = `translateY(${offset}px)`;
-	}
-};
-
-const handleScroll = () => {
-	// szöveg aktiválása
-	if (textSection.value) {
-		const rect = textSection.value.getBoundingClientRect();
-		if (rect.top < window.innerHeight - 100) {
-			visible.value = true;
-		}
-	}
-
-	handleParallax();
-};
-
-onMounted(() => {
-	window.addEventListener('scroll', handleScroll);
-	handleScroll();
-});
-
-onUnmounted(() => {
-	window.removeEventListener('scroll', handleScroll);
-});
+const { showLinks, animateIn } = useAnimations(2, 0);
+onMounted(() => animateIn());
+// A parallax-hoz kapcsolódó kódokat már el is távolítottad, elég a CSS-es hover.
 </script>

@@ -1,62 +1,62 @@
 <template>
-  <footer class="bg-[#12120f] text-gray-300 py-6 px-4 ">
-    <div class="container mx-auto space-y-6">
-      
-      <!-- Felső sor: logo, gombok, ikonok -->
-      <div class="flex flex-col md:flex-row md:items-center md:justify-between w-full gap-6">
-        
-        <!-- Logo -->
-        <div class="text-white text-2xl font-bold">FT</div>
+  <footer class="bg-black text-white min-h-screen w-full px-4">
+    <div class="max-w-7xl w-full min-h-screen mx-auto flex flex-col justify-between py-16">
 
-        <!-- Gombok -->
-        <div class="flex flex-wrap md:absolute md:left-1/2 md:transform md:-translate-x-1/2 text-left">
-          <button
-            v-for="(item, index) in footerItems"
-            :key="index"
-            @click="navigateTo(item.route)"
-            class="px-6 py-3 border border-neutral-400 rounded-full text-xs transition-all duration-300 ease-in-out cursor-pointer text-white hover:px-7 hover:py-2 hover:bg-white hover:text-black"
-          >
-            {{ item.label }}
-          </button>
+      <!-- Középen a tartalom -->
+      <div class="flex flex-col items-center justify-center flex-1 text-center">
+        <div class="text-6xl md:text-8xl font-extrabold tracking-tight mb-12">
+          SAY HELLO
         </div>
 
-       <!-- Social ikonok -->
-<div class="flex items-center space-x-4 text-xl text-gray-400 md:relative">
-  <a href="https://www.linkedin.com/in/ferencz-toth" target="_blank" rel="noopener" class="hover:text-white">
-    <i class="fab fa-linkedin"></i>
-  </a>
-  <a href="https://github.com/TothFerencz" target="_blank" rel="noopener" class="hover:text-white">
-    <i class="fab fa-github"></i>
-  </a>
-</div>
-	  </div>
-
-      <hr class="border-gray-700" />
-
-      <!-- Alsó sor: jogi rész -->
-      <div class="flex flex-col md:flex-row justify-between items-start md:items-center text-sm text-gray-400 gap-2">
-        <p>© 2025, All Rights Reserved</p>
+        <div
+      class="mt-8 flex items-center space-x-4 transition-all duration-700 ease-out transform group"
+      :class="showLinks[1]
+        ? 'opacity-100 translate-y-0'
+        : 'opacity-0 translate-y-4'"
+    >
+      <!-- IKON KÖRREL -->
+      <div
+        class="w-12 h-12 border border-gray-500 rounded-full flex items-center justify-center
+               transform transition-transform duration-300 group-hover:scale-125 cursor-pointer"
+      >
+        <img
+          :src="ArrowIcon"
+          alt="arrow"
+          class="w-4 h-4 transform transition-transform duration-300
+                 group-hover:rotate-45 group-hover:"
+        />
       </div>
+
+      <a
+        href="#contact"
+        class="uppercase text-base md:text-lg lg:text-xl font-inter font-[600] tracking-wide
+               cursor-pointer transition-colors duration-300"
+      >
+        LET’S CONNECT
+      </a>
+    </div>
+      </div>
+
+      <!-- Footer alja -->
+      <div class="w-full flex flex-wrap justify-between text-xs pt-10">
+        <span class="uppercase text-base md:text-lg lg:text-xl font-inter font-[600] tracking-wide transform transition-all duration-700 ease-out cursor-pointer"> Made by Ferencz</span>
+        <div class="flex gap-6 uppercase text-base md:text-lg lg:text-xl font-inter font-[600] tracking-wide transform transition-all duration-700 ease-out cursor-pointer">
+          <a href="#" class="hover:underline">INSTAGRAM</a>
+          <a href="#" class="hover:underline">LINKEDIN</a>
+          <a href="#" class="hover:underline">GITHUB</a>
+        </div>
+      </div>
+
     </div>
   </footer>
 </template>
 
 <script setup>
-import { useRouter } from 'vue-router';
+import { onMounted } from 'vue';
+import { useAnimations } from '@/composables/useAnimations';
+import ArrowIcon from '@/assets/arrow-white.svg';
 
-const router = useRouter();
-
-const footerItems = [
-	{ label: 'HOME', route: '/' },
-	{ label: 'PORTFOLIO', route: '/portfolio' },
-	{ label: 'CONTACT ME', route: '/contact' }
-];
-
-function navigateTo(route) {
-	router.push(route);
-}
+const { showLinks, animateIn } = useAnimations(2, 0);
+onMounted(() => animateIn());
+// A parallax-hoz kapcsolódó kódokat már el is távolítottad, elég a CSS-es hover.
 </script>
-
-<style scoped>
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
-</style>

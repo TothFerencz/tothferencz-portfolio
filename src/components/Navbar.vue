@@ -1,120 +1,143 @@
 <template>
-  <nav class="flex justify-between items-center px-6 py-6 bg-neutral-50 relative z-50 container mx-auto">
-    <div class="text-3xl font-bold text-neutral-900">FT</div>
-
-    <!-- Desktop nav -->
-    <div class="hidden md:flex ">
-      <button
-        v-for="(item, index) in navItems"
-        :key="index"
-        @click="navigate(item)"
-        :class="[
-          'border border-neutral-400 rounded-full text-xs transition-all duration-300 ease-in-out cursor-pointer',
-          activeItem === item
-            ? 'px-6 py-3 bg-black text-white hover:px-7 hover:py-2'
-            : 'px-6 py-3 text-neutral-900 hover:bg-black hover:text-white hover:px-7 hover:py-2'
-        ]"
-      >
-        {{ item }}
-      </button>
+  <!-- Top Navbar -->
+  <nav class="mx-auto max-w-7xl flex items-center justify-between py-10 px-6 text-black">
+    <div
+      :class="[
+        'uppercase text-base md:text-lg lg:text-xl font-inter font-[600] tracking-wide transform transition-all duration-700 ease-out cursor-pointer',
+        showNavbar ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 '
+      ]"
+    >
+      FERENCZ
+    </div>
+    
+    <div
+      class="hidden md:block"
+      :class="[
+        'text-base md:text-lg lg:text-xl font-inter font-[600] tracking-wide transform transition-all duration-700 ease-out delay-150',
+        showNavbar ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+      ]"
+    >
+      PORTFOLIO / 2025
     </div>
 
-    <!-- Mobile hamburger -->
-    <div class="md:hidden">
-      <button
-        @click="toggleMenu"
-        class="w-10 h-10 flex items-center justify-center rounded-full border border-neutral-400"
-      >
-        <img src="@/assets/hamburger.svg" alt="Menu" class="w-5 h-5" />
-      </button>
-    </div>
+    <button
+      @click="toggle"
+      class="menu-btn flex items-center focus:outline-none"
+      :class="[
+        'transform transition-all duration-700 ease-out delay-300',
+        showNavbar ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+      ]"
+    >
+      <span class="uppercase text-base md:text-lg lg:text-xl font-inter font-[600] tracking-wide cursor-pointer">MENU</span>
+    </button>
+  </nav>
 
-    <!-- Mobile menu (full screen) -->
-    <transition name="fade">
-      <div v-if="isMenuOpen" class="fixed inset-0 bg-neutral-50 flex flex-col px-8 py-12 z-40">
-        <button
-          @click="toggleMenu"
-          class="absolute top-6 right-6 w-10 h-10 flex items-center justify-center rounded-full border border-neutral-400"
-        >
-          <img src="@/assets/close.svg" alt="Close" class="w-5 h-5" />
-        </button>
-
-        <div class="pt-10 w-full space-y-6">
-          <button
-            v-for="(item, index) in navItems"
-            :key="index"
-            @click="navigate(item); toggleMenu()"
-            :class="[
-              'w-full text-left text-2xl font-bold border-b border-neutral-300 pb-3',
-              activeItem === item ? 'text-black' : 'text-neutral-800'
-            ]"
-          >
-            {{ item }}
+  <!-- Slide-Down Panel -->
+  <transition
+    enter-active-class="transition-transform duration-500 ease-[cubic-bezier(0.33,1,0.68,1)]"
+    enter-from-class="-translate-y-full"
+    enter-to-class="translate-y-0"
+    leave-active-class="transition-transform duration-500 ease-in"
+    leave-from-class="translate-y-0"
+    leave-to-class="-translate-y-full"
+  >
+ <div v-if="isOpen" class="fixed inset-0 bg-[#f2f2f2] z-50 text-black">
+      <div class="relative mx-auto max-w-7xl flex flex-col justify-center h-full py-10 px-6">
+        
+        <!-- Top Row -->
+        <div class="absolute top-10 left-6 right-6 flex items-center justify-between z-50">
+          <div class="uppercase text-base md:text-lg lg:text-xl font-inter font-[600] tracking-wide">FERENCZ</div>
+          <button @click="toggle" class="flex items-center focus:outline-none">
+            <span class="uppercase text-base md:text-lg lg:text-xl font-inter font-[600] tracking-wide">CLOSE</span>
           </button>
         </div>
+
+        <!-- Navigation Links -->
+        <div class="flex-1 flex flex-col justify-center items-start md:items-start space-y-8">
+          <a href="#" :class="linkClass(showLinks[0])"><span>Home</span><span>Home</span></a>
+          <a href="#" :class="linkClass(showLinks[1])"><span>Work</span><span>Work</span></a>
+          <a href="#" :class="linkClass(showLinks[2])"><span>About</span><span>About</span></a>
+          <a href="#" :class="linkClass(showLinks[3])"><span>Contact</span><span>Contact</span></a>
+        </div>
+
+      <!-- Footer -->
+<div class="flex flex-col md:flex-row justify-center md:justify-between items-center py-8 space-y-6 md:space-y-0">
+  <span
+    class="hidden md:inline uppercase text-base md:text-lg lg:text-xl font-inter font-[600] tracking-wide transform transition-all duration-700 ease-out cursor-pointer"
+    :class="[
+      showFooter[0] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+    ]"
+  >
+    Made by Ferencz
+  </span>
+
+  <div class="flex space-x-6 justify-center md:justify-end text-center w-full md:w-auto">
+    <a
+      href="#"
+      class="group uppercase text-base md:text-lg lg:text-xl font-inter font-[600] tracking-wide transform transition-all duration-700 ease-out cursor-pointer overflow-hidden"
+      :class="[showFooter[1] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12']"
+    >
+      <span class="block transition-transform duration-300 ease-out group-hover:-translate-y-full">Instagram</span>
+      <span class="absolute left-0 top-full block transition-transform duration-300 ease-out group-hover:-translate-y-full">Instagram</span>
+    </a>
+    <a
+      href="#"
+      class="group uppercase text-base md:text-lg lg:text-xl font-inter font-[600] tracking-wide transform transition-all duration-700 ease-out cursor-pointer overflow-hidden"
+      :class="[showFooter[2] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12']"
+    >
+      <span class="block transition-transform duration-300 ease-out group-hover:-translate-y-full">LinkedIn</span>
+      <span class="absolute left-0 top-full block transition-transform duration-300 ease-out group-hover:-translate-y-full">LinkedIn</span>
+    </a>
+    <a
+      href="#"
+      class="group uppercase text-base md:text-lg lg:text-xl font-inter font-[600] tracking-wide transform transition-all duration-700 ease-out cursor-pointer overflow-hidden"
+      :class="[showFooter[3] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12']"
+    >
+      <span class="block transition-transform duration-300 ease-out group-hover:-translate-y-full">Github</span>
+      <span class="absolute left-0 top-full block transition-transform duration-300 ease-out group-hover:-translate-y-full">Github</span>
+    </a>
+  </div>
+</div>
+
+
       </div>
-    </transition>
-  </nav>
+    </div>
+  </transition>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
-import { useRouter } from 'vue-router';
+import { ref, onMounted } from 'vue';
+import { useAnimations } from '@/composables/useAnimations';
 
-const router = useRouter();
-
-const navItems = ['HOME', 'PORTFOLIO', 'CONTACT ME'];
-const isMenuOpen = ref(false);
-const activeItem = ref(navItems[0]);
-
-function toggleMenu() {
-	isMenuOpen.value = !isMenuOpen.value;
-}
-
-function setActive(item) {
-	activeItem.value = item;
-}
-
-function navigate(item) {
-	setActive(item);
-	switch (item) {
-		case 'HOME':
-			router.push('/');
-			break;
-		case 'PORTFOLIO':
-			router.push('/portfolio');
-			break;
-		case 'ABOUT':
-			router.push('/about');
-			break;
-		case 'CONTACT ME':
-			router.push('/contact');
-			break;
-	}
-}
-
-const handleResize = () => {
-	if (window.innerWidth >= 768) {
-		isMenuOpen.value = false;
-	}
-};
+const isOpen = ref(false);
+const showNavbar = ref(false);
+const { showLinks, showFooter, animateIn, animateOut } = useAnimations();
 
 onMounted(() => {
-	window.addEventListener('resize', handleResize);
+	setTimeout(() => {
+		showNavbar.value = true;
+	}, 100);
 });
 
-onUnmounted(() => {
-	window.removeEventListener('resize', handleResize);
-});
+function openMenu() {
+	isOpen.value = true;
+	animateIn();
+}
+
+function closeMenu() {
+	animateOut(() => {
+		isOpen.value = false;
+	});
+}
+
+function toggle() {
+	isOpen.value ? closeMenu() : openMenu();
+}
+
+function linkClass(state) {
+	return [
+		'hover-slide-up text-4xl md:text-6xl lg:text-8xl font-extrabold uppercase transition-all duration-300 ease-out text-center md:text-left',
+		state ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+	];
+}
 </script>
-
-<style scoped>
-.fade-enter-active,
-.fade-leave-active {
-	transition: opacity 0.3s;
-}
-.fade-enter-from,
-.fade-leave-to {
-	opacity: 0;
-}
-</style>

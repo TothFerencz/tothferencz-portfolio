@@ -1,42 +1,65 @@
 <script setup>
-import { useRoute } from 'vue-router';
-
+import { ref, nextTick, onMounted } from 'vue';
+import PageReveal from './components/PageReveal.vue';
 import Navbar from './components/Navbar.vue';
 import Headline from './components/Headline.vue';
-import About from './components/About.vue';
-import RecentProjects from './components/RecentProjects.vue';
-import MiniHeadline from './components/MiniHeadline.vue';
-import MyStacks from './components/MyStacks.vue';
+import ProjectsGrid from './components/ProjectsGrid.vue';
 import Footer from './components/Footer.vue';
-import Contact from './components/Contact.vue';
-
 import { SpeedInsights } from '@vercel/speed-insights/vue';
+import { useAnimations } from './composables/useAnimations.js';
 
-const route = useRoute();
+const { animateIn } = useAnimations();
+const revealed = ref(false);
+const isMaintenance = ref(false);
+
+onMounted(() => {
+	// Show maintenance message on the root URL
+	if (window.location.hostname === 'www.ferencztoth.site' && window.location.pathname === '/') {
+		isMaintenance.value = true;
+	}
+});
+
+function handleRevealDone() {
+	revealed.value = true;
+
+	nextTick(() => {
+		animateIn();
+	});
+}
 </script>
 
 <template>
-	<div class="font-['DM Sans'] bg-neutral-50">
-		<header>
-			<SpeedInsights />
-			<Navbar />
-			<MiniHeadline />
-		</header>
+  <div>
+    <!-- Maintenance state -->
+    <div v-if="isMaintenance" class="flex items-center justify-center h-screen bg-white">
+      <h1 class="text-2xl font-semibold">Page under maintenance</h1>
+    </div>
 
-		<main>
-			<template v-if="route.path === '/'">
-				<Headline />
-				<About />
-				<RecentProjects />
-				<MyStacks />
-				<Contact />
-			</template>
+    <!-- Normal site content -->
+    <div v-else class="relative bg-[#f2f2f2] overflow-hidden">
+      <PageReveal @done="handleRevealDone" />
 
-			<template v-else>
-				<router-view />
-			</template>
-		</main>
+      <div>
+        <header>
+          <SpeedInsights />
+          <Navbar />
+          <Headline />
+        </header>
 
-		<Footer /> <!-- Minden oldalon meg fog jelenni -->
-	</div>
+        <main>
+          <ProjectsGrid />
+        </main>
+
+        <Footer />
+      </div>
+    </div>
+  </div>
 </template>
+
+<style>
+html,
+body {
+	background: #f2f2f2;
+	scroll-behavior: smooth;
+}
+</style>
