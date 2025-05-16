@@ -18,7 +18,7 @@
           <RouterView />
         </main>
 
-        <Footer />
+<Footer v-if="!isProjectDetailPage" />
       </div>
     </div>
   </div>
@@ -38,6 +38,11 @@ export default {
 		Navbar,
 		Footer,
 		PageReveal
+	},
+	computed: {
+		isProjectDetailPage() {
+			return this.$route.name === 'Work';
+		}
 	},
 	data() {
 		return {
