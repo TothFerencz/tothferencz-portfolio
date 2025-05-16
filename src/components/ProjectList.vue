@@ -6,9 +6,8 @@
         data-animate-in
         class="text-4xl md:text-6xl lg:text-8xl font-extrabold uppercase transition-all duration-700 ease-out transform"
       >
-        WORK
+        Projects
       </h1>
-      
 
       <!-- Projektlista -->
       <div data-animate-in class="mt-16 space-y-4">
@@ -16,14 +15,28 @@
           v-for="project in projects"
           :key="project.title"
           data-animate-in
-@click="goToDetails(project.slug)"
-          class="group relative grid grid-cols-3 items-center border-b border-black/10 py-6 transition-colors duration-300 hover:border-black cursor-pointer"
+          @click="goToDetails(project.slug)"
+          class="group relative grid grid-cols-2 sm:grid-cols-3 items-center border-b border-black/10 py-6 transition-colors duration-300 hover:border-black cursor-pointer"
           @mouseenter="hoveredProject = project"
           @mouseleave="hoveredProject = null"
         >
           <!-- Title -->
           <div class="text-left uppercase text-base md:text-lg lg:text-xl font-inter font-[600] tracking-wide">
             {{ project.title }}
+          </div>
+
+          <!-- Category -->
+          <div
+            class="text-right uppercase text-base md:text-lg lg:text-xl font-inter font-[600] tracking-wide z-10"
+          >
+            {{ project.category }}
+          </div>
+
+          <!-- Év (csak SM+ mérettől) -->
+          <div
+            class="text-right uppercase text-base md:text-lg lg:text-xl font-inter font-[600] tracking-wide hidden sm:block"
+          >
+            2024
           </div>
 
           <!-- Hover kép -->
@@ -40,16 +53,6 @@
             </transition>
           </div>
 
-          <!-- Category -->
-          <div class="text-center uppercase text-base md:text-lg lg:text-xl font-inter font-[600] tracking-wide z-10">
-            {{ project.category }}
-          </div>
-
-          <!-- Év -->
-          <div class="text-right uppercase text-base md:text-lg lg:text-xl font-inter font-[600] tracking-wide">
-            2024
-          </div>
-
           <!-- Border anim -->
           <div
             class="absolute bottom-0 left-0 h-[1px] bg-black transition-transform duration-500 origin-right scale-x-0 group-hover:scale-x-100 w-full"
@@ -63,6 +66,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
+
 const router = useRouter();
 
 function goToDetails(slug) {

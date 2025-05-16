@@ -27,25 +27,53 @@
         />
       </div>
 
-      <a
-        href="#contact"
-        class="uppercase text-base md:text-lg lg:text-xl font-inter font-[600] tracking-wide
-               cursor-pointer transition-colors duration-300"
-      >
-        LET’S CONNECT
-      </a>
+   <a
+  href="mailto:ferencztothdev@gmail.com"
+  class="uppercase text-base md:text-lg lg:text-xl font-inter font-[600] tracking-wide
+         cursor-pointer transition-colors duration-300"
+>
+  LET’S CONNECT
+</a>
     </div>
       </div>
 
-      <!-- Footer alja -->
-      <div class="w-full flex flex-wrap justify-between text-xs pt-10">
-        <span class="uppercase text-base md:text-lg lg:text-xl font-inter font-[600] tracking-wide transform transition-all duration-700 ease-out cursor-pointer"> Made by Ferencz</span>
-        <div class="flex gap-6 uppercase text-base md:text-lg lg:text-xl font-inter font-[600] tracking-wide transform transition-all duration-700 ease-out cursor-pointer">
-          <a href="#" class="hover:underline">INSTAGRAM</a>
-          <a href="#" class="hover:underline">LINKEDIN</a>
-          <a href="#" class="hover:underline">GITHUB</a>
-        </div>
-      </div>
+     <!-- Footer alja -->
+<div class="w-full flex flex-col md:flex-row items-center justify-center md:justify-between gap-6 text-xs pt-10">
+  <span class="uppercase text-base md:text-lg lg:text-xl font-inter font-[600] tracking-wide transform transition-all duration-700 ease-out cursor-pointer md:block hidden">
+    Made by Ferencz
+  </span>
+
+  <div class="flex flex-row flex-wrap justify-center items-center gap-6 uppercase text-base md:text-lg lg:text-xl font-inter font-[600] tracking-wide transform transition-all duration-700 ease-out cursor-pointer">
+    <a
+      href="https://www.instagram.com/tothferencz_/"
+      target="_blank"
+      rel="noopener"
+      class="hover-slide-up transform transition-all duration-300 ease-out"
+    >
+      <span>Instagram</span>
+      <span>Instagram</span>
+    </a>
+    <a
+      href="https://linkedin.com/in/ferencz-toth/"
+      target="_blank"
+      rel="noopener"
+      class="hover-slide-up transform transition-all duration-300 ease-out"
+    >
+      <span>LinkedIn</span>
+      <span>LinkedIn</span>
+    </a>
+    <a
+      href="https://github.com/TothFerencz"
+      target="_blank"
+      rel="noopener"
+      class="hover-slide-up transform transition-all duration-300 ease-out"
+    >
+      <span>Github</span>
+      <span>Github</span>
+    </a>
+  </div>
+</div>
+
 
     </div>
   </footer>

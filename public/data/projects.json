@@ -3,45 +3,45 @@
   {
     "title": "Expleo",
     "slug": "expleo",
-    "category": "Web Development",
+    "category": "Website",
     "client": "Expleo",
     "service": "Website",
     "date": "Jan 2024",
-    "summary": "Web design and development for Expleo with a focus on responsive layout and corporate identity integration.",
+    "summary": "I independently developed the backend and frontend. Using Filament Admin on top of Laravel, I created an interface to manage large volumes of data, with custom product upload tools and searchable listings. The frontend was styled with Tailwind for consistency.",
     "image": "expleo.png",
-    "url": "https://expleo.com"
+    "url": "https://expleo.hu"
   },
   {
     "title": "MVS",
     "slug": "mvs",
-    "category": "Web Development",
+    "category": "Website",
     "client": "MVS",
     "service": "Corporate Site",
     "date": "Feb 2024",
-    "summary": "Rebranding and full-stack web development for MVS. Emphasis on minimal UI/UX and performance.",
+    "summary" : "I independently developed both the backend and frontend. The backend was built with Laravel for maintainability, while the frontend used  Tailwind to ensure a modern, responsive design and smooth user experience.",
     "image": "mvs.png",
-    "url": "https://mvs.com"
+    "url": "https://mvs-systems.com"
   },
   {
     "title": "Inthera",
     "slug": "inthera",
-    "category": "Web Development",
+    "category": "Website",
     "client": "Inthera",
     "service": "Web App",
     "date": "Apr 2024",
-    "summary": "SPA-fejlesztés Vue-ban, real-time dashboard funkciókkal és egyedi komponensekkel Inthera számára.",
+   "summary": "I fully developed both the backend and frontend. The blog was managed through a custom CMS built with Laravel and Filament. Real-time patient data was handled with Laravel  while the frontend used Vue and Tailwind to ensure a secure and responsive user experience.",
     "image": "inthera.png",
-    "url": "https://inthera.io"
+    "url": "https://inthera.com"
   },
   {
     "title": "Arkanala",
     "slug": "arkanala",
-    "category": "Web Development",
+    "category": "Website",
     "client": "Arkanala",
     "service": "Portfolio",
     "date": "May 2024",
-    "summary": "Arkanala művészeti portfólió oldal — fullscreen dizájn, egyedi animációk és dark mode támogatás.",
+    "summary": "I handled both frontend and backend independently. Laravel powers the API orchestration and business logic, while the frontend—built with Vue and Tailwind—delivers interactive responses. OpenAI's API was seamlessly integrated for generating predictive outputs based on user prompts.",
     "image": "arkanala.png",
-    "url": "https://arkanala.art"
+    "url": "https://arkanala.com"
   }
 ]

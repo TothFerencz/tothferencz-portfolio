@@ -10,10 +10,19 @@
     ? 'opacity-100 translate-y-0'
     : 'opacity-0 translate-y-4'"
 >
-  <span>I am a</span><br />
-  <span>full stack developer</span><br />
-  <span>based in Romania</span>
+<span class="">ABOUT ME</span>
 </h1>
+<p 
+  class="mt-6 text-center text-lg md:text-xl lg:text-2xl font-inter font-bold tracking-tight uppercase leading-snug max-w-3xl mx-auto transition-all duration-700 ease-out delay-150"  :class="showLinks[0]
+    ? 'opacity-100 translate-y-0'
+    : 'opacity-0 translate-y-4'"
+>
+  I PASSIONATELY CRAFT CAPTIVATING VISUALS, BLENDING  
+  ART AND TECH, FOR DIVERSE CLIENTS, PRIORITIZING  
+  ORIGINALITY WITH PRECISION.
+</p>
+
+
     <!-- Egy közös group a hover-hez -->
     <div
       class="mt-8 flex items-center space-x-4 transition-all duration-700 ease-out transform group"
@@ -34,13 +43,13 @@
         />
       </div>
 
-    <a
-  @click.prevent="goToAbout"
-  class="uppercase text-base md:text-lg lg:text-xl font-inter font-[600] tracking-wide
-         cursor-pointer transition-colors duration-300"
->
-  ABOUT ME
-</a>
+      <a
+      @click.prevent="goToWorks"
+        class="uppercase text-base md:text-lg lg:text-xl font-inter font-[600] tracking-wide
+               cursor-pointer transition-colors duration-300"
+      >
+        Projects
+      </a>
     </div>
   </section>
 </template>
@@ -52,8 +61,8 @@ import ArrowIcon from '@/assets/arrow.svg';
 import { useRouter } from 'vue-router';
 const router = useRouter();
 
-function goToAbout() {
-	router.push('/about');
+function goToWorks() {
+	router.push('/works');
 }
 
 const { showLinks, animateIn } = useAnimations(2, 0);

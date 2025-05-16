@@ -16,20 +16,24 @@
   <img
     :src="`/mockups/${project.image}`"
     :alt="project.title"
-    class="w-full rounded-md object-cover transition duration-200 group-hover:brightness-75"
+    class="w-full  object-cover transition duration-200 group-hover:brightness-75"
   />
   <!-- VIEW hover effekthez -->
-  <div
-    v-if="activeIndex === index"
-    class="absolute w-20 h-20 rounded-full bg-black text-white flex items-center justify-center text-sm font-bold pointer-events-none transition-transform duration-100 ease-out"
-    :style="{
-      left: '50%',
-      top: '50%',
-      transform: `translate(-50%, -50%) translate(${offset.x}px, ${offset.y}px)`
-    }"
-  >
-    VIEW
-  </div>
+<div
+  v-show="true"
+  :class="{
+    'opacity-100 scale-100': activeIndex === index,
+    'opacity-0 scale-75 pointer-events-none': activeIndex !== index
+  }"
+  class="absolute w-20 h-20 rounded-full bg-black text-white flex items-center justify-center text-sm font-bold transition-all duration-300 ease-out"
+  :style="{
+    left: '50%',
+    top: '50%',
+    transform: `translate(-50%, -50%) translate(${offset.x}px, ${offset.y}px)`
+  }"
+>
+  VIEW
+</div>
 </div>
 
       <div>

@@ -14,7 +14,7 @@
 
     <!-- Center: Portfolio - absolute centered -->
     <div
-      class="absolute left-1/2  transform -translate-x-1/2 -translate-y-1/2 md: block hidden"
+      class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 md:block hidden"
       :class="[
         'text-base md:text-lg lg:text-xl font-inter font-[600] tracking-wide transition-all duration-700 ease-out delay-150',
         showNavbar ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
@@ -58,17 +58,48 @@
         <!-- Slide Menu Links -->
         <div class="flex-1 flex flex-col justify-center items-start md:items-start space-y-8">
           <a
-            v-for="(label, index) in ['Home', 'Work', 'About', 'Contact']"
-            :key="label"
             href="javascript:void(0)"
-            @click="navigateTo(label)"
+            @click="navigateTo('Home')"
             :class="[
               'hover-slide-up text-4xl md:text-6xl lg:text-8xl font-extrabold uppercase transition-all duration-300 ease-out text-center md:text-left',
-              showLinks[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+              showLinks[0] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
             ]"
           >
-            <span>{{ label }}</span>
-            <span>{{ label }}</span>
+            <span>Home</span>
+            <span>Home</span>
+          </a>
+          <a
+            href="javascript:void(0)"
+            @click="navigateTo('Work')"
+            :class="[
+              'hover-slide-up text-4xl md:text-6xl lg:text-8xl font-extrabold uppercase transition-all duration-300 ease-out text-center md:text-left',
+              showLinks[1] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+            ]"
+          >
+            <span>Projects</span>
+            <span>Projects</span>
+          </a>
+          <a
+            href="javascript:void(0)"
+            @click="navigateTo('About')"
+            :class="[
+              'hover-slide-up text-4xl md:text-6xl lg:text-8xl font-extrabold uppercase transition-all duration-300 ease-out text-center md:text-left',
+              showLinks[2] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+            ]"
+          >
+            <span>About</span>
+            <span>About</span>
+          </a>
+          <a
+         href="mailto:ferencztothdev@gmail.com"
+           
+            :class="[
+              'hover-slide-up text-4xl md:text-6xl lg:text-8xl font-extrabold uppercase transition-all duration-300 ease-out text-center md:text-left',
+              showLinks[3] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+            ]"
+          >
+            <span>Contact</span>
+            <span>Contact</span>
           </a>
         </div>
 
@@ -78,21 +109,45 @@
             class="hidden md:inline uppercase text-base md:text-lg lg:text-xl font-inter font-[600] tracking-wide transition-all duration-300 ease-out"
             :class="[showFooter[0] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12']"
           >
-            Made with love 💙
+         Made by Ferencz
           </span>
 
           <div class="flex space-x-6 justify-center md:justify-end uppercase text-base md:text-lg lg:text-xl font-inter font-[600] tracking-wide text-center w-full md:w-auto">
             <a
-              v-for="(label, index) in ['Instagram', 'LinkedIn', 'Github']"
-              :key="label"
-              href="#"
+              href="https://www.instagram.com/tothferencz_/"
+              target="_blank"
+              rel="noopener"
               :class="[
                 'hover-slide-up transform transition-all duration-300 ease-out',
-                showFooter[index + 1] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+                showFooter[1] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
               ]"
             >
-              <span>{{ label }}</span>
-              <span>{{ label }}</span>
+              <span>Instagram</span>
+              <span>Instagram</span>
+            </a>
+            <a
+              href="https://linkedin.com/in/ferencz-toth/"
+              target="_blank"
+              rel="noopener"
+              :class="[
+                'hover-slide-up transform transition-all duration-300 ease-out',
+                showFooter[2] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+              ]"
+            >
+              <span>LinkedIn</span>
+              <span>LinkedIn</span>
+            </a>
+            <a
+              href="https://github.com/TothFerencz"
+              target="_blank"
+              rel="noopener"
+              :class="[
+                'hover-slide-up transform transition-all duration-300 ease-out',
+                showFooter[3] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+              ]"
+            >
+              <span>Github</span>
+              <span>Github</span>
             </a>
           </div>
         </div>
@@ -143,14 +198,9 @@ function navigateTo(label) {
 
 	const targetRoute = routes[label];
 
-	// Először menü zárása
 	animateOut(async () => {
 		isOpen.value = false;
-
-		// Várjunk amíg az animáció tényleg láthatóan lefut (~500ms)
 		await new Promise((resolve) => setTimeout(resolve, 700));
-
-		// Csak ezután navigáljunk
 		router.push(targetRoute);
 	});
 }
