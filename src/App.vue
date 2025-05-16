@@ -53,15 +53,17 @@ export default {
 	},
 	methods: {
 		handleRevealDone() {
-			this.revealed = true;
+			// 1. Várunk egy kicsit, hogy tényleg befejeződjön az animáció
+			setTimeout(() => {
+				this.revealed = true;
 
-			this.$nextTick(() => {
-				// DOM megjelent -> indítjuk az animációkat
-				const { animateIn } = usePageAnimations();
-				animateIn();
+				this.$nextTick(() => {
+					const { animateIn } = usePageAnimations();
+					animateIn();
 
-				this.initLenis();
-			});
+					this.initLenis();
+				});
+			}, 300); // 300ms vagy amennyi idő kell, hogy ne villanjon fel semmi
 		},
 		initLenis() {
 			if (this.lenis) return;
