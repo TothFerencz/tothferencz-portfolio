@@ -6,16 +6,15 @@
       </div>
     </div>
     <div v-else>
-      <!-- PageReveal mindig lefut route váltásnál -->
+      <!-- Oldalváltásnál újrainduló page reveal -->
       <PageReveal :key="$route.fullPath" @done="handleRevealDone" />
 
-      <!-- Tartalom csak az animáció után renderelődik -->
+      <!-- Tartalom csak akkor jelenik meg, ha a PageReveal lefutott -->
       <div v-if="revealed">
         <SpeedInsights />
         <Navbar />
 
         <main>
-          <!-- Az oldal csak itt töltődik be, Footer sem renderelődik előbb -->
           <RouterView />
         </main>
 
@@ -31,7 +30,7 @@ import Navbar from './components/Navbar.vue';
 import Footer from './components/Footer.vue';
 import PageReveal from './components/PageReveal.vue';
 import Lenis from '@studio-freight/lenis';
-import { usePageAnimations } from './composables/usePageAnimations.js';
+import { usePageAnimations } from './composables/usePageAnimations.js'; // ÚJ
 
 export default {
 	components: {
@@ -43,27 +42,26 @@ export default {
 	data() {
 		return {
 			revealed: false,
-			lenis: null,
-			isMaintenance: false // vagy vedd át máshonnan
+			lenis: null
 		};
 	},
 	watch: {
+		// Minden route váltásnál újraindul a PageReveal és animáció
 		$route() {
 			this.revealed = false;
 		}
 	},
 	methods: {
 		handleRevealDone() {
-			// Kis késleltetés, hogy biztosan az animáció VÉGE után jelenjen meg minden
-			setTimeout(() => {
-				this.revealed = true;
+			this.revealed = true;
 
-				this.$nextTick(() => {
-					const { animateIn } = usePageAnimations();
-					animateIn();
-					this.initLenis();
-				});
-			}, 300); // állíthatod 200–500ms között
+			this.$nextTick(() => {
+				// DOM megjelent -> indítjuk az animációkat
+				const { animateIn } = usePageAnimations();
+				animateIn();
+
+				this.initLenis();
+			});
 		},
 		initLenis() {
 			if (this.lenis) return;
