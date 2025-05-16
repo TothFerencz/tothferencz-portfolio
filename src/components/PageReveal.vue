@@ -21,7 +21,7 @@ onMounted(async () => {
 	// Késleltetett belépő animáció (elkerüli a "initial class apply" villanást)
 	setTimeout(() => {
 		show.value = true;
-	}, 40); // rövid delay, hogy az osztályváltás triggerezze a belépést
+	}, 4); // rövid delay, hogy az osztályváltás triggerezze a belépést
 
 	// Majd 1s után kezdjük az eltűnést
 	setTimeout(() => {
