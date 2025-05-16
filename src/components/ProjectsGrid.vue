@@ -46,6 +46,7 @@
 
   <!-- MORE gomb szekció -->
   <div
+ @click.prevent="goToProjects"
     class="relative h-64 flex items-center justify-center cursor-pointer"
     @mouseenter="showMore = true"
     @mouseleave="onMoreLeave"
@@ -78,6 +79,9 @@ const router = useRouter();
 
 function goToDetails(slug) {
 	router.push(`/works/${slug}`);
+}
+function goToProjects() {
+	router.push('/works');
 }
 
 const projects = ref([]);
