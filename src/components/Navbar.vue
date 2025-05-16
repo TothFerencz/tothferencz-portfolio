@@ -200,7 +200,7 @@ function navigateTo(label) {
 
 	animateOut(async () => {
 		isOpen.value = false;
-		await new Promise((resolve) => setTimeout(resolve, 700));
+		await new Promise((resolve) => setTimeout(resolve, 600));
 		router.push(targetRoute);
 	});
 }

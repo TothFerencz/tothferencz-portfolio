@@ -3,13 +3,12 @@ import { ref, onMounted, defineEmits, nextTick } from 'vue';
 
 const emit = defineEmits(['done']);
 
-const show = ref(true); // splash látható
-const hidden = ref(false); // splash el van távolítva a DOM-ból
+const show = ref(false); // induláskor nincs animáltan bent
+const hidden = ref(false); // DOM-ból eltávolítás
 
 function startHide() {
-	show.value = false;
+	show.value = false; // indítjuk a kilépő animációt
 
-	// Várjuk ki az animáció végét (1000ms), utána DOM-ból eltüntetjük
 	setTimeout(() => {
 		hidden.value = true;
 		emit('done');
@@ -19,10 +18,15 @@ function startHide() {
 onMounted(async () => {
 	await nextTick();
 
-	// Vár 1 másodpercet indulás előtt, majd elindítja az eltűnést
+	// Késleltetett belépő animáció (elkerüli a "initial class apply" villanást)
+	setTimeout(() => {
+		show.value = true;
+	}, 10); // rövid delay, hogy az osztályváltás triggerezze a belépést
+
+	// Majd 1s után kezdjük az eltűnést
 	setTimeout(() => {
 		startHide();
-	}, 1000);
+	}, 2000); // 1s megjelenés + 1s késleltetés
 });
 </script>
 
@@ -39,7 +43,6 @@ onMounted(async () => {
 </template>
 
 <style>
-/* (opcionális) biztos, ami biztos: body háttér is fekete, hogy ne villogjon fehér háttér */
 html,
 body {
 	background-color: #000;
