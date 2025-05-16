@@ -45,7 +45,7 @@
   </div>
 
   <!-- MORE gomb szekció -->
-  <div
+  <div data-animate-in
  @click.prevent="goToProjects"
     class="relative h-64 flex items-center justify-center cursor-pointer"
     @mouseenter="showMore = true"
