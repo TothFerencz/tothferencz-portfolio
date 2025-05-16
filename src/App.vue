@@ -18,7 +18,7 @@
           <RouterView />
         </main>
 
-        <Footer />
+        <Footer v-if="revealed" />
       </div>
     </div>
   </div>
