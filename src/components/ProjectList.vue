@@ -40,18 +40,7 @@
           </div>
 
           <!-- Hover kép -->
-          <div
-            class="absolute inset-0 flex items-center justify-center pointer-events-none"
-          >
-            <transition name="fade-up">
-              <img
-                v-if="hoveredProject === project"
-                :src="`/mockup/${project.image}`"
-                alt=""
-                class="w-40 md:w-64 object-cover opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 ease-out"
-              />
-            </transition>
-          </div>
+          
 
           <!-- Border anim -->
           <div
