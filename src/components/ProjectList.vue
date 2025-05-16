@@ -25,24 +25,21 @@
             {{ project.title }}
           </div>
 
-          <!-- Category -->
+          <!-- Category (mobilon a 2. oszlopban, desktopon középen) -->
           <div
-            class="text-right uppercase text-base md:text-lg lg:text-xl font-inter font-[600] tracking-wide z-10"
+            class="text-right sm:text-center uppercase text-base md:text-lg lg:text-xl font-inter font-[600] tracking-wide z-10"
           >
             {{ project.category }}
           </div>
 
-          <!-- Év (csak SM+ mérettől) -->
+          <!-- Év (csak desktopon jelenik meg) -->
           <div
-            class="text-right uppercase text-base md:text-lg lg:text-xl font-inter font-[600] tracking-wide hidden sm:block"
+            class="hidden sm:block text-right uppercase text-base md:text-lg lg:text-xl font-inter font-[600] tracking-wide"
           >
             2024
           </div>
 
-          <!-- Hover kép -->
-          
-
-          <!-- Border anim -->
+          <!-- Hover border -->
           <div
             class="absolute bottom-0 left-0 h-[1px] bg-black transition-transform duration-500 origin-right scale-x-0 group-hover:scale-x-100 w-full"
           ></div>

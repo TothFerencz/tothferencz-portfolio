@@ -10,8 +10,8 @@
 
         <!-- Animált kapcsolat rész -->
         <div
-          class="mt-8 flex items-center space-x-4 transition-all duration-700 ease-out transform group"
-          :class="showLinks[1] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'"
+          class="mt-8 flex items-center space-x-4 transition-all duration-700 ease-out transform group opacity-0 translate-y-4"
+          :class="isMounted && showLinks[1] ? 'opacity-100 translate-y-0' : ''"
         >
           <!-- Ikon -->
           <div
@@ -36,12 +36,11 @@
         </div>
       </div>
 
-      <!-- Footer alja -->
+      <!-- Footer alja (nincs animáció) -->
       <div class="w-full flex flex-col md:flex-row items-center justify-center md:justify-between gap-6 text-xs pt-10">
         <!-- Made by -->
         <span
-          :class="showFooter[0] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'"
-          class="uppercase text-base md:text-lg lg:text-xl font-inter font-[600] tracking-wide transform transition-all duration-700 ease-out cursor-pointer md:block hidden"
+          class="uppercase text-base md:text-lg lg:text-xl font-inter font-[600] tracking-wide cursor-pointer md:block hidden"
         >
           Made by Ferencz
         </span>
@@ -49,15 +48,12 @@
         <!-- Social linkek -->
         <div class="flex flex-row flex-wrap justify-center items-center gap-6 uppercase text-base md:text-lg lg:text-xl font-inter font-[600] tracking-wide">
           <a
-            v-for="(link, i) in socialLinks"
+            v-for="link in socialLinks"
             :key="link.label"
             :href="link.href"
             target="_blank"
             rel="noopener"
-            :class="[
-              'hover-slide-up transform transition-all duration-700 ease-out',
-              showFooter[i + 1] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-            ]"
+            class="hover-slide-up transform transition-all duration-300 ease-out"
           >
             <span>{{ link.label }}</span>
             <span>{{ link.label }}</span>
@@ -70,12 +66,12 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
 import { useAnimations } from '@/composables/useAnimationsMenu';
 import ArrowIcon from '@/assets/arrow-white.svg';
 
-// 2 link + 4 footer elem
-const { showLinks, showFooter, animateIn } = useAnimations(2, 4);
+// Csak a LET’S CONNECT szekciót animáljuk (2 anim slotból az egyik)
+const { showLinks, animateIn } = useAnimations(2, 0);
 
 const socialLinks = [
 	{ label: 'Instagram', href: 'https://www.instagram.com/tothferencz_/' },
@@ -83,5 +79,10 @@ const socialLinks = [
 	{ label: 'Github', href: 'https://github.com/TothFerencz' }
 ];
 
-onMounted(() => animateIn());
+const isMounted = ref(false);
+
+onMounted(() => {
+	isMounted.value = true;
+	requestAnimationFrame(() => animateIn());
+});
 </script>
